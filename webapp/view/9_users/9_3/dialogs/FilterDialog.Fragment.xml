@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirmPer">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="Permiso"
+				key="Permiso"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="LEER" key="Permiso___LEER" />
+					<ViewSettingsItem text="ESCRIBIR" key="Permiso___ESCRIBIR" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Catálogo"
+				key="Catalogo"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Paquetes" key="Catalogo___PAQUETES" />
+					<ViewSettingsItem text="Operadores" key="Catalogo___OPERADORES" />
+					<ViewSettingsItem text="Asignación PaqYOper" key="Catalogo___ASIG_PAQOP" />
+					<ViewSettingsItem text="Inventario" key="Catalogo___INVENTARIO" />
+					<ViewSettingsItem text="Tallas Generales" key="Catalogo___TALLAS_GRAL" />
+					<ViewSettingsItem text="Tallas En Inventario" key="Catalogo___TALLAS_INV" />
+					<ViewSettingsItem text="Asignaciones" key="Catalogo___ASIGNACIONES" />
+					<ViewSettingsItem text="Tallas Asignadas" key="Catalogo___TALLAS_ASIG" />
+					<ViewSettingsItem text="Encargados" key="Catalogo___ENCARGADOS" />
+					<ViewSettingsItem text="Evidencia Información" key="Catalogo___EVIDENCIA_INFO" />
+					<ViewSettingsItem text="Evidencia Documentos" key="Catalogo___EVIDENCIA_DOCS" />
+					<ViewSettingsItem text="Rotaciones" key="Catalogo___ROTACIONES" />
+					<ViewSettingsItem text="Visualizar costos" key="Catalogo___ROTACIONES_INFO" />
+					<ViewSettingsItem text="Usuarios" key="Catalogo___USUARIOS" />
+					<ViewSettingsItem text="Roles" key="Catalogo___ROLES" />
+					<ViewSettingsItem text="Permisos" key="Catalogo___PERMISOS" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

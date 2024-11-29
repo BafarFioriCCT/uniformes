@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <MessageStrip
+            text="Recuerde que los campos referenciados a este registro, se modificarán."
+            type="Warning"
+            showIcon="true"
+        />
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="ID*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateIdTaGr"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Talla*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateTalla"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Tipo*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateTipo"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,142 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirmTaAsig">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="¿Uniforme?"
+				key="Uniforme"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Si lleva uniforme" key="Uniforme___SI" />
+					<ViewSettingsItem text="No lleva uniforme" key="Uniforme___NO" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Pantalón"
+				key="Pantalon"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="28" key="Pantalon___28" />
+					<ViewSettingsItem text="29" key="Pantalon___29" />
+					<ViewSettingsItem text="30" key="Pantalon___30" />
+					<ViewSettingsItem text="31" key="Pantalon___31" />
+					<ViewSettingsItem text="32" key="Pantalon___32" />
+					<ViewSettingsItem text="33" key="Pantalon___33" />
+					<ViewSettingsItem text="34" key="Pantalon___34" />
+					<ViewSettingsItem text="35" key="Pantalon___35" />
+					<ViewSettingsItem text="36" key="Pantalon___36" />
+					<ViewSettingsItem text="37" key="Pantalon___37" />
+					<ViewSettingsItem text="38" key="Pantalon___38" />
+					<ViewSettingsItem text="39" key="Pantalon___39" />
+					<ViewSettingsItem text="40" key="Pantalon___40" />
+					<ViewSettingsItem text="41" key="Pantalon___41" />
+					<ViewSettingsItem text="42" key="Pantalon___42" />
+					<ViewSettingsItem text="43" key="Pantalon___43" />
+					<ViewSettingsItem text="44" key="Pantalon___44" />
+					<ViewSettingsItem text="45" key="Pantalon___45" />
+					<ViewSettingsItem text="46" key="Pantalon___46" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Camisa"
+				key="Camisa"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="32" key="Camisa___32" />
+					<ViewSettingsItem text="33" key="Camisa___33" />
+					<ViewSettingsItem text="34" key="Camisa___34" />
+					<ViewSettingsItem text="35" key="Camisa___35" />
+					<ViewSettingsItem text="36" key="Camisa___36" />
+					<ViewSettingsItem text="37" key="Camisa___37" />
+					<ViewSettingsItem text="38" key="Camisa___38" />
+					<ViewSettingsItem text="39" key="Camisa___39" />
+					<ViewSettingsItem text="40" key="Camisa___40" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Playera"
+				key="Playera"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="XS" key="Playera___XS" />
+					<ViewSettingsItem text="CH" key="Playera___CH" />
+					<ViewSettingsItem text="M" key="Playera___M" />
+					<ViewSettingsItem text="G" key="Playera___G" />
+					<ViewSettingsItem text="XL" key="Playera___XL" />
+					<ViewSettingsItem text="2XL" key="Playera___2XL" />
+					<ViewSettingsItem text="3XL" key="Playera___3XL" />
+					<ViewSettingsItem text="4XL" key="Playera___4XL" />
+					<ViewSettingsItem text="5XL" key="Playera___5XL" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Calzado"
+				key="Calzado"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="21" key="Calzado___21" />
+					<ViewSettingsItem text="22" key="Calzado___22" />
+					<ViewSettingsItem text="23" key="Calzado___23" />
+					<ViewSettingsItem text="24" key="Calzado___24" />
+					<ViewSettingsItem text="25" key="Calzado___25" />
+					<ViewSettingsItem text="26" key="Calzado___26" />
+					<ViewSettingsItem text="27" key="Calzado___27" />
+					<ViewSettingsItem text="28" key="Calzado___28" />
+					<ViewSettingsItem text="29" key="Calzado___29" />
+					<ViewSettingsItem text="30" key="Calzado___30" />
+					<ViewSettingsItem text="31" key="Calzado___31" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Chamarra"
+				key="Chamarra"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="XS" key="Chamarra___XS" />
+					<ViewSettingsItem text="CH" key="Chamarra___CH" />
+					<ViewSettingsItem text="M" key="Chamarra___M" />
+					<ViewSettingsItem text="G" key="Chamarra___G" />
+					<ViewSettingsItem text="XL" key="Chamarra___XL" />
+					<ViewSettingsItem text="2XL" key="Chamarra___2XL" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Mandil"
+				key="Mandil"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Unitalla" key="Mandil___UNITALLA" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Bata"
+				key="Bata"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="CH" key="Bata___CH" />
+					<ViewSettingsItem text="M" key="Bata___M" />
+					<ViewSettingsItem text="L" key="Bata___L" />
+					<ViewSettingsItem text="XL" key="Bata___XL" />
+					<ViewSettingsItem text="2XL" key="Bata___2XL" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Faja"
+				key="Faja"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="CH" key="Faja___CH" />
+					<ViewSettingsItem text="M" key="Faja___M" />
+					<ViewSettingsItem text="L" key="Faja___L" />
+					<ViewSettingsItem text="XL" key="Faja___XL" />
+					<ViewSettingsItem text="2XL" key="Faja___2XL" />
+					<ViewSettingsItem text="3XL" key="Faja___3XL" />
+					<ViewSettingsItem text="4XL" key="Faja___4XL" />
+					<ViewSettingsItem text="5XL" key="Faja___5XL" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

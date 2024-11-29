@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirmInv">
+		<sortItems>
+			<ViewSettingsItem text="ID" key="IdInv" selected="true" />
+			<ViewSettingsItem text="Función" key="Funcion" />
+            <ViewSettingsItem text="Artículo" key="Articulo" />
+			<ViewSettingsItem text="Color" key="Color" />
+			<ViewSettingsItem text="Logo" key="Logo" />
+			<ViewSettingsItem text="Vida Útil" key="VidaUtil" />
+			<ViewSettingsItem text="Talla 1" key="Talla1" />
+			<ViewSettingsItem text="Precio 1" key="Precio1" />
+			<ViewSettingsItem text="Talla 2" key="Talla2" />
+			<ViewSettingsItem text="Precio 2" key="Precio2" />
+			<ViewSettingsItem text="Talla 3" key="Talla3" />
+			<ViewSettingsItem text="Precio 3" key="Precio3" />
+			<ViewSettingsItem text="Proveedor" key="Proveedor" />
+			<ViewSettingsItem text="Fecha Entrada" key="FechaEntrada" />
+			<ViewSettingsItem text="Cantidad Entrada" key="CantEnt" />
+			<ViewSettingsItem text="Fecha Salida" key="FechaSalida" />
+			<ViewSettingsItem text="Cantidad Salida" key="CantSal" />
+			<ViewSettingsItem text="Cantidad Total" key="CantTotal" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

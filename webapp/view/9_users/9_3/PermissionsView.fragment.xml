@@ -1,0 +1,197 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Per">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Per"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de permisos"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVPer"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedPer"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVPer"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVPer"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVPer"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Per"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonPer"
+                    text="Agregar permiso"
+                    icon="sap-icon://add-product"
+                    press="onCreateDialogPer"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonPer"
+                    text="Eliminar permiso"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogPer"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3Per"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tablePer"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemPer"
+                inset="false"
+                growing="true"
+                growingThreshold="15"
+                paste="onPaste"
+                items="{path: 'oDataModel>/PermisosSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de permisos"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchPer"
+                            change="onChangePer"
+                            selectionChange="onChangePer"
+                            width="20%"
+                            selectedKey="IdPer"
+                            items="{ path: 'oComboBoxModelSearch>/13/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldPer"
+                            search="handleSearchFieldPer"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedPer"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Filtro"
+                            icon="sap-icon://filter"
+                            press="handleFilterBtnPressedPer"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmPer"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="Rol" />
+                    </Column>
+                    <Column>
+                        <Text text="Permiso" />
+                    </Column>
+                    <Column>
+                        <Text text="Catálogo" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>IdPer}" />
+                            <Text text="{oDataModel>Rol}" />
+                            <Text text="{oDataModel>Permiso}" />
+                            <Text text="{oDataModel>Catalogo}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

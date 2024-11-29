@@ -1,0 +1,224 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1TaInv">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1PTaInv"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de tallas en inventario"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVTaInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedTaInv"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVTaInv"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVTaInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVTaInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2TaInv"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonTaInv"
+                    text="Agregar talla"
+                    icon="sap-icon://sys-add"
+                    press="onCreateDialogTaInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonTaInv"
+                    text="Modificar talla"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogTaInv"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonTaInv"
+                    text="Eliminar talla"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogTaInv"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3TaInv"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableTaInv"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemTaInv"
+                inset="false"
+                growing="true"
+                growingThreshold="15"
+                paste="onPaste"
+                items="{path: 'oDataModel>/TallasInvSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de tallas en inventario"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchTaInv"
+                            change="onChangeTaInv"
+                            selectionChange="onChangeTaInv"
+                            width="15%"
+                            selectedKey="IdTaInv"
+                            items="{ path: 'oComboBoxModelSearch>/5/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldTaInv"
+                            search="handleSearchFieldTaInv"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedTaInv"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Filtro"
+                            icon="sap-icon://filter"
+                            press="handleFilterBtnPressedTaInv"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmTaInv"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="ID Inventario" />
+                    </Column>
+                    <Column>
+                        <Text text="Artículo" />
+                    </Column>
+                    <Column>
+                        <Text text="ID Talla Gral" />
+                    </Column>
+                    <Column>
+                        <Text text="Talla" />
+                    </Column>
+                    <Column>
+                        <Text text="ID Asignación" />
+                    </Column>
+                    <Column>
+                        <Text text="Precio" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>IdTaInv}" />
+                            <Text text="{oDataModel>IdInv}" />
+                            <Text text="{oDataModel>Articulo}" />
+                            <Text text="{oDataModel>IdTaGr}" />
+                            <Text text="{oDataModel>Talla}" />
+                            <Text text="{oDataModel>IdAsign}" />
+                            <Text text="{oDataModel>Precio}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

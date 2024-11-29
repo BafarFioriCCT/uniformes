@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirmTaInv">
+		<sortItems>
+			<ViewSettingsItem text="ID" key="IdTaInv" selected="true" />
+			<ViewSettingsItem text="ID Inventario" key="IdInv" />
+			<ViewSettingsItem text="Artículo" key="Articulo" />
+			<ViewSettingsItem text="ID Talla General" key="IdTaGr" />
+			<ViewSettingsItem text="ID Asignación" key="IdAsign" />
+			<ViewSettingsItem text="Talla" key="Talla" />
+			<ViewSettingsItem text="Precio" key="Precio" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

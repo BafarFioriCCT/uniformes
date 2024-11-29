@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirmPaq">
+		<sortItems>
+			<ViewSettingsItem text="Función" key="Funcion" selected="true" />
+			<ViewSettingsItem text="Tipo Uniforme" key="TipoUniforme" />
+			<ViewSettingsItem text="Denominación Función" key="DenomFunc" />
+			<ViewSettingsItem text="Nombre Paquete" key="NomPaquete" />
+            <ViewSettingsItem text="Descripción" key="Descripcion" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

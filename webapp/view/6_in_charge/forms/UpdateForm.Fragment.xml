@@ -1,0 +1,125 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="N° Empleado*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateNoEmp"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Nombre completo*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateRh"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Ciudad 1*/División 1">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateCiudad1"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdateDivision1"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Ciudad 2/División 2">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateCiudad2"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdateDivision2"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Ciudad 3/División 3">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateCiudad3"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdateDivision3"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

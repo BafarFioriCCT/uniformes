@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirmRot">
+		<sortItems>
+			<ViewSettingsItem text="ID" key="IdRt" selected="true" />
+			<ViewSettingsItem text="ID Asignación" key="IdAsign" />
+			<ViewSettingsItem text="Fecha Ingreso" key="FechaIngreso" />
+			<ViewSettingsItem text="N° Empleado" key="NoEmp" />
+            <ViewSettingsItem text="Tipo Uniforme" key="TipoUnif" />
+			<ViewSettingsItem text="Fecha Egreso" key="FechaEgreso" />
+			<ViewSettingsItem text="Cantidad" key="CobroUnif" />
+			<ViewSettingsItem text="Cuenta" key="Cantidad" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,198 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1RotCob">
+        <VBox
+            id="VB2_1RotCob"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Información de costos y cobros de uniformes"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <Table
+                id="tableCostUnif"
+                inset="false"
+                paste="onPaste"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="COBRO DE UNIFORMES Y EQ TRABAJO DPC Y RETAIL"
+                            level="H1"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Zona" />
+                    </Column>
+                    <Column>
+                        <Text text="Precio" />
+                    </Column>
+                    <Column>
+                        <Text text="Días Penalización" />
+                    </Column>
+                    <Column>
+                        <Text text="Porcentaje de Cobro" />
+                    </Column>
+                </columns>
+            </Table>
+        </VBox>
+        <VBox
+            id="VB2_2RotCob"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="COSTO DE UNIFORMES POR ZONA"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <IconTabBar
+                class="sapUiSmallMarginBottom sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter
+                        id="iconTabRetail"
+                        icon="sap-icon://retail-store"
+                        text="RETAIL"
+                    >
+                        <FlexBox
+                            class="columns"
+                        >
+                            <Table
+                                id="tableRetail"
+                                inset="false"
+                                paste="onPaste"
+                            >
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title
+                                            text="COSTO UNIFORMES RETAIL"
+                                            level="H1"
+                                        />
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column>
+                                        <Text text="Artículo" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Talla" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Precio" />
+                                    </Column>
+                                </columns>
+                                <layoutData>
+                                    <FlexItemData growFactor="1"
+                                        styleClass="sapUiTinyMarginEnd" />
+                                </layoutData>
+                            </Table>
+                            <Table
+                                id="tableEqRetail"
+                                inset="false"
+                                paste="onPaste"
+                            >
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title
+                                            text="COSTO EQ TRABAJO RETAIL"
+                                            level="H1"
+                                        />
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column>
+                                        <Text text="Artículo" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Talla" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Precio" />
+                                    </Column>
+                                </columns>
+                                <layoutData>
+                                    <FlexItemData growFactor="1"
+                                        styleClass="sapUiTinyMarginEnd" />
+                                </layoutData>
+                            </Table>
+                        </FlexBox>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        id="iconTabDPC"
+                        icon="sap-icon://building"
+                        text="DPC"
+                    >
+                        <FlexBox
+                            class="columns"
+                        >
+                            <Table
+                                id="tableDPC"
+                                inset="false"
+                                paste="onPaste"
+                            >
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title
+                                            text="COSTO UNIFORMES DPC"
+                                            level="H1"
+                                        />
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column>
+                                        <Text text="Artículo" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Talla" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Precio" />
+                                    </Column>
+                                </columns>
+                                <layoutData>
+                                    <FlexItemData growFactor="1"
+                                        styleClass="sapUiTinyMarginEnd" />
+                                </layoutData>
+                            </Table>
+                            <Table
+                                id="tableEqDPC"
+                                inset="false"
+                                paste="onPaste"
+                            >
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title
+                                            text="COSTO EQ TRABAJO DPC"
+                                            level="H1"
+                                        />
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column>
+                                        <Text text="Artículo" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Talla" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Precio" />
+                                    </Column>
+                                </columns>
+                                <layoutData>
+                                    <FlexItemData growFactor="1"
+                                        styleClass="sapUiTinyMarginEnd" />
+                                </layoutData>
+                            </Table>
+                        </FlexBox>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,223 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Enc">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Enc"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de encargados"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVEnc"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedEnc"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVEnc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVEnc"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVEnc"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Enc"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonEnc"
+                    text="Agregar encargado"
+                    icon="sap-icon://add-employee"
+                    press="onCreateDialogEnc"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonEnc"
+                    text="Modificar encargado"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogEnc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonEnc"
+                    text="Eliminar encargado"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogEnc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3Enc"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableEnc"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemEnc"
+                inset="false"
+                growing="true"
+                growingThreshold="10"
+                paste="onPaste"
+                items="{path: 'oDataModel>/EncargadosSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de encargados"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchEnc"
+                            change="onChangeEnc"
+                            selectionChange="onChangeEnc"
+                            width="20%"
+                            selectedKey="NoEmp"
+                            items="{ path: 'oComboBoxModelSearch>/8/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldEnc"
+                            search="handleSearchFieldEnc"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedEnc"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmEnc"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="N° Empleado" />
+                    </Column>
+                    <Column>
+                        <Text text="Nombre" />
+                    </Column>
+                    <Column>
+                        <Text text="Ciudad 1" />
+                    </Column>
+                    <Column>
+                        <Text text="División 1" />
+                    </Column>
+                    <Column>
+                        <Text text="Ciudad 2" />
+                    </Column>
+                    <Column>
+                        <Text text="División 2" />
+                    </Column>
+                    <Column>
+                        <Text text="Ciudad 3" />
+                    </Column>
+                    <Column>
+                        <Text text="División 3" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>NoEmp}" />
+                            <Text text="{oDataModel>Rh}" />
+                            <Text text="{oDataModel>Ciudad1}" />
+                            <Text text="{oDataModel>Division1}" />
+                            <Text text="{oDataModel>Ciudad2}" />
+                            <Text text="{oDataModel>Division2}" />
+                            <Text text="{oDataModel>Ciudad3}" />
+                            <Text text="{oDataModel>Division3}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

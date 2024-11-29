@@ -1,0 +1,208 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1TaGrl">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1PTaGrl"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de tallas generales"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVTaGral"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedTaGrl"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVTaGral"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVTaGral"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVTaGral"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2TaGrl"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonTaGrl"
+                    text="Agregar talla"
+                    icon="sap-icon://sys-add"
+                    press="onCreateDialogTaGral"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonTaGrl"
+                    text="Modificar talla"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogTaGral"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonTaGrl"
+                    text="Eliminar talla"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogTaGral"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3TaGrl"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableTaGrl"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemTaGral"
+                inset="false"
+                growing="true"
+                growingThreshold="15"
+                paste="onPaste"
+                items="{path: 'oDataModel>/TallasGrlSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de tallas generales"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchTaGrl"
+                            change="onChangeTaGral"
+                            selectionChange="onChangeTaGral"
+                            width="15%"
+                            selectedKey="IdTaGr"
+                            items="{ path: 'oComboBoxModelSearch>/4/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldTaGrl"
+                            search="handleSearchFieldTaGral"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedTaGral"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Filtro"
+                            icon="sap-icon://filter"
+                            press="handleFilterBtnPressedTaGral"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmTaGral"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="Talla" />
+                    </Column>
+                    <Column>
+                        <Text text="Tipo" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>IdTaGr}" />
+                            <Text text="{oDataModel>Talla}" />
+                            <Text text="{oDataModel>Tipo}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

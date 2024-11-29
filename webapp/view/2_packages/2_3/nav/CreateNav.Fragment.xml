@@ -1,0 +1,208 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <NavContainer
+            id="navConAsp"
+            width="98%"
+            height="45em"
+            class="navContainerControl sapUiSmallMarginBottom">
+            <Page
+                id="p1"
+                title="Operadores"
+            >
+                <content>
+                    <MessageStrip class="sapUiSmallMargin"
+                        text="Seleccione los operadores a asignar."
+                        showIcon="true" />
+                    <Table
+                        id="tableOpe"
+                        mode="MultiSelect"
+                        selectionChange="onSelectedItemAspOpe"
+                        inset="false"
+                        growing="true"
+                        growingThreshold="20"
+                        paste="onPaste"
+                        items="{path: 'oDataModel>/PaqOpSet'}"
+                    >
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title
+                                    text="Tabla de operadores"
+                                    level="H1"
+                                />
+                                <ToolbarSpacer />
+                                <ComboBox
+                                    id="comboBoxSearchOpe"
+                                    change="onChangeAspOpe"
+                                    selectionChange="onChangeAspOpe"
+                                    width="20%"
+                                    selectedKey="OpFuncion"
+                                    items="{ path: 'oComboBoxModelSearch>/1/values'}"
+                                >
+                                    <core:Item
+                                        key="{oComboBoxModelSearch>key}"
+                                        text="{oComboBoxModelSearch>text}"
+                                    />
+                                </ComboBox>
+                                <SearchField
+                                    id="searchFieldOpe"
+                                    search="handleSearchFieldAspOpe"
+                                    width="40%"
+                                />
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column>
+                                <Text text="Operador Función" />
+                            </Column>
+                            <Column>
+                                <Text text="Tipo Uniforme" />
+                            </Column>
+                            <Column>
+                                <Text text="Paquete" />
+                            </Column>
+                            <Column>
+                                <Text text="Descripción" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{oDataModel>OpFuncion}" />
+                                    <Text text="{oDataModel>TipoUnif}" />
+                                    <Text text="{oDataModel>Paquete}" />
+                                    <Text text="{oDataModel>Descripcion}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+            <Page
+                id="p2"
+                title="Paquetes">
+                <content>
+                    <MessageStrip class="sapUiSmallMargin"
+                        text="Seleccione el paquete a asignar."
+                        showIcon="true" />
+                    <Table
+                        id="tablePaq"
+                        mode="MultiSelect"
+                        selectionChange="onSelectedItemAspPaq"
+                        inset="false"
+                        growing="true"
+                        growingThreshold="10"
+                        paste="onPaste"
+                        items="{path: 'oDataModel>/PaqueteSet'}"
+                    >
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title
+                                    text="Tabla de paquetes"
+                                    level="H1"
+                                />
+                                <ToolbarSpacer />
+                                <ComboBox
+                                    id="comboBoxSearchPaq"
+                                    change="onChangeAspPaq"
+                                    selectionChange="onChangeAspPaq"
+                                    width="20%"
+                                    selectedKey="Funcion"
+                                    items="{ path: 'oComboBoxModelSearch>/0/values'}"
+                                >
+                                    <core:Item
+                                        key="{oComboBoxModelSearch>key}"
+                                        text="{oComboBoxModelSearch>text}"
+                                    />
+                                </ComboBox>
+                                <SearchField
+                                    id="searchFieldPaq"
+                                    search="handleSearchFieldAspPaq"
+                                    width="40%"
+                                />
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column>
+                                <Text text="Funcion" />
+                            </Column>
+                            <Column>
+                                <Text text="¿Hijos?" />
+                            </Column>
+                            <Column>
+                                <Text text="¿Uniforme?" />
+                            </Column>
+                            <Column>
+                                <Text text="Tipo Uniforme" />
+                            </Column>
+                            <Column>
+                                <Text text="Sociedad" />
+                            </Column>
+                            <Column>
+                                <Text text="Denom. Func." />
+                            </Column>
+                            <Column>
+                                <Text text="Paquete" />
+                            </Column>
+                            <Column>
+                                <Text text="Descripción" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{oDataModel>Funcion}" />
+                                    <Text text="{oDataModel>Hijos}" />
+                                    <Text text="{oDataModel>Uniforme}" />
+                                    <Text text="{oDataModel>TipoUniforme}" />
+                                    <Text text="{oDataModel>Sociedad}" />
+                                    <Text text="{oDataModel>DenomFunc}" />
+                                    <Text text="{oDataModel>NomPaquete}" />
+                                    <Text text="{oDataModel>Descripcion}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+        </NavContainer>
+
+        <VBox>
+            <FlexBox
+                alignItems="Center"
+                justifyContent="Center"
+            >
+                <Button
+                    id="btnP1"
+                    text="Página 1"
+                    press="handleNavAsp"
+                    class="sapUiSmallMargin"
+                >
+                    <customData>
+                        <core:CustomData
+                            key="target"
+                            value="p1" />
+                    </customData>
+                </Button>
+                <Button
+                    id="btnP2"
+                    text="Página 2"
+                    press="handleNavAsp"
+                    class="sapUiSmallMargin"
+                    enabled="false"
+                >
+                    <customData>
+                        <core:CustomData
+                            key="target"
+                            value="p2" />
+                    </customData>
+                </Button>
+            </FlexBox>
+        </VBox>
+    </VBox>
+
+
+</core:FragmentDefinition>

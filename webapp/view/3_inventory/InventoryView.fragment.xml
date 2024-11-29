@@ -1,0 +1,348 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Inv">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Inv"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de inventario"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedInv"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVInv"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Inv"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="stockButtonInv"
+                    text="Actualizar stock"
+                    icon="sap-icon://sys-add"
+                    press="onStockDialogInv"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="createButtonInv"
+                    text="Agregar inventario"
+                    icon="sap-icon://sys-add"
+                    press="onCreateDialogInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonInv"
+                    text="Modificar inventario"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogInv"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonInv"
+                    text="Eliminar inventario"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogInv"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <VBox
+            id="VB2_3Inv"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <ComboBox
+                    id="comboBoxSearchInv"
+                    change="onChangeInv"
+                    selectionChange="onChangeInv"
+                    selectedKey="IdInv"
+                    items="{ path: 'oComboBoxModelSearch>/3/values'}"
+                >
+                    <core:Item
+                        key="{oComboBoxModelSearch>key}"
+                        text="{oComboBoxModelSearch>text}"
+                    />
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </ComboBox>
+                <SearchField
+                    id="searchFieldInv"
+                    search="handleSearchFieldInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </SearchField>
+                <Button
+                    tooltip="Ver Opciones Ordenar"
+                    icon="sap-icon://sort"
+                    text="Ordenar"
+                    press="handleSortBtnPressedInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    tooltip="Ver Opciones Filtro"
+                    icon="sap-icon://filter"
+                    text="Filtro"
+                    press="handleFilterBtnPressedInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    tooltip="Reestablecer datos"
+                    icon="sap-icon://reset"
+                    text="Reestablecer"
+                    press="handleResetBtnConfirmInv"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_4Inv"
+            class="sapUiTinyMargin"
+        >
+            <ScrollContainer width="100%" horizontal="true" vertical="true" focusable="true">
+                <Table
+                    id="tableInv"
+                    class="tableHdr"
+                    sticky="ColumnHeaders"
+                    width="100rem"
+                    mode="MultiSelect"
+                    selectionChange="onSelectedItemInv"
+                    growing="true"
+                    growingThreshold="15"
+                    paste="onPaste"
+                    items="{path: 'oDataModel>/InventarioSet'}"
+                >
+                    <columns>
+                        <Column width="20%">
+                            <Text text="ID" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Función" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="División" />
+                        </Column>
+                        <Column width="30%">
+                            <Text text="Artículo" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Talla Gral" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Color" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Tipo" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Logo" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Vida Útil" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Talla 1" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Precio 1" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Talla 2" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Precio 2" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Talla 3" />
+                        </Column>
+                        <Column width="15%">
+                            <Text text="Precio 3" />
+                        </Column>
+                        <Column width="30%">
+                            <Text text="Proveedor" />
+                        </Column>
+                        <Column width="30%">
+                            <Text text="Fecha Entrada" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Cantidad Entrada" />
+                        </Column>
+                        <Column width="30%">
+                            <Text text="Fecha Salida" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Cantidad Salida" />
+                        </Column>
+                        <Column width="20%">
+                            <Text text="Cantidad Total" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{oDataModel>IdInv}" />
+                                <Text text="{oDataModel>Funcion}" />
+                                <Text text="{oDataModel>Division}" />
+                                <Text text="{oDataModel>Articulo}" />
+                                <Text text="{oDataModel>TallaGral}" />
+                                <Text text="{oDataModel>Color}" />
+                                <Text text="{oDataModel>Tipo}" />
+                                <Text text="{oDataModel>Logo}" />
+                                <Text text="{oDataModel>VidaUtil}" />
+                                <Text text="{oDataModel>Talla1}" />
+                                <Text text="{oDataModel>Precio1}" />
+                                <Text text="{oDataModel>Talla2}" />
+                                <Text text="{oDataModel>Precio2}" />
+                                <Text text="{oDataModel>Talla3}" />
+                                <Text text="{oDataModel>Precio3}" />
+                                <Text text="{oDataModel>Proveedor}" />
+                                <Text
+                                    text="{
+                                    path: 'oDataModel>FechaEntrada', 
+                                    type: 'sap.ui.model.type.Date', 
+                                    formatOptions: {UTC: true, pattern: 'dd.MM.yyyy' }
+                                    }"
+                                />
+                                <Text text="{oDataModel>CantEnt}" />
+                                <Text
+                                    text="{
+                                    path: 'oDataModel>FechaSalida', 
+                                    type: 'sap.ui.model.type.Date', 
+                                    formatOptions: {UTC: true, pattern: 'dd.MM.yyyy' }
+                                    }"
+                                />
+                                <Text text="{oDataModel>CantSal}" />
+                                <Text text="{oDataModel>CantTotal}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </ScrollContainer>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

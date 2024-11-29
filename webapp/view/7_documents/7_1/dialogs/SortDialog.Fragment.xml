@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirmDoc">
+		<sortItems>
+			<ViewSettingsItem text="ID" key="IdDocEv" selected="true" />
+			<ViewSettingsItem text="Nombre" key="Nombre" />
+			<ViewSettingsItem text="Fecha Creación" key="FechaCreacion" />
+			<ViewSettingsItem text="Creado Por" key="CreadoPor" />
+            <ViewSettingsItem text="Tamaño Archivo" key="TamArchivo" />
+			<ViewSettingsItem text="ID Objeto" key="IdObjeto" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

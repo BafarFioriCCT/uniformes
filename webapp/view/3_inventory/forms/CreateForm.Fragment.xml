@@ -1,0 +1,259 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <!--****************************************FUNCION/DIVISION****************************************-->
+                        <f:FormElement label="Función*/División">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpCreateFuncion"
+                                        type="Number"
+                                        textFormatMode="KeyValue"
+                                        placeholder="Busque el paquete..."
+                                        showValueHelp="true"
+                                        valueHelpRequest="handleValueHelpPaqInv"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpCreateDivision"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************ARTICULO****************************************-->
+                        <f:FormElement label="Artículo*">
+                            <f:fields>
+                                <TextArea
+                                    id="inpCreateArticulo"
+                                    growing="true"
+                                    growingMaxLines="5"
+                                    width="100%"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA_GRAL****************************************-->
+                        <f:FormElement label="Talla General*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateTallaGral"
+                                    type="Text"
+                                    textFormatMode="KeyValue"
+                                    placeholder="Busque la talla..."
+                                    showSuggestion="true"
+                                    showValueHelp="true"
+                                    valueHelpRequest="handleValueHelpCreateTaGral"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************COLOR****************************************-->
+                        <f:FormElement label="Color">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateColor"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TIPO/LOGO****************************************-->
+                        <f:FormElement label="Tipo*/Logo">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpCreateTipo"
+                                        type="Text"
+                                        textFormatMode="KeyValue"
+                                        placeholder="Busque el tipo de ropa..."
+                                        showSuggestion="true"
+                                        showValueHelp="true"
+                                        enabled="false"
+                                        valueHelpRequest="handleValueHelpCreateTipo"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpCreateLogo"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************VIDA_UTIL****************************************-->
+                        <f:FormElement label="Vida Útil*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateVidaUtil"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA1/PRECIO1****************************************-->
+                        <f:FormElement label="Talla 1*/Precio 1*">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpCreateTalla1"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpCreatePrecio1"
+                                        width="160%"
+                                        description="$MXN"
+                                        type="Number"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA2/PRECIO2****************************************-->
+                        <f:FormElement label="Talla 2/Precio 2">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpCreateTalla2"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpCreatePrecio2"
+                                        width="160%"
+                                        description="$MXN"
+                                        type="Number"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA3/PRECIO3****************************************-->
+                        <f:FormElement label="Talla 3/Precio 3">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpCreateTalla3"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpCreatePrecio3"
+                                        width="160%"
+                                        description="$MXN"
+                                        type="Number"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************PROVEEDOR****************************************-->
+                        <f:FormElement label="Proveedor*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateProveedor"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************FECHA_ENTRADA/CANT_ENT****************************************-->
+                        <f:FormElement label="Fecha Entrada*/Cantidad Entrada*">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <DatePicker
+                                        id="dPickCreateFechaEntr"
+                                        placeholder="Seleccione una fecha ..."
+                                        class="sapUiSmallMarginBottom">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </DatePicker>
+                                    <Input
+                                        id="inpCreateCantEntr"
+                                        type="Number"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

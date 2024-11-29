@@ -1,0 +1,117 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Documento*">
+                            <f:fields>
+                                <u:FileUploader
+                                    id="fUploaderCreateDoc"
+                                    name="myFileUpload"
+                                    uploadUrl="upload/"
+                                    tooltip="Suba la evidencia correspondiente"
+                                    uploadComplete="handleUploadCreateDoc" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Tipo*/Fecha Creación*">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpCreateTipo"
+                                        enabled="false"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <DatePicker
+                                        id="dPickerCreateFechaCreacion"
+                                        placeholder="Seleccione una fecha..."
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </DatePicker>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Creado Por*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateCreadoPor"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Tamaño Archivo*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateTamArchivo"
+                                    enabled="false"
+                                    type="Number"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="URL Almacenado*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateUrlAlmacenado"
+                                    enabled="false"
+                                    value="/Sistema_Automatizado_Uniformes/Graph_DocEvidencias"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Estado*">
+                            <f:fields>
+                                <ComboBox
+                                    id="cBoxCreateEstado"
+                                    width="45%"
+                                    change="onChangeCreateEstado"
+                                    selectionChange="onChangeCreateEstado"
+                                    selectedKey="Firmado"
+                                    items="{ path: 'oComboBoxModelCreate>/1/values'}"
+                                >
+                                    <core:Item
+                                        key="{oComboBoxModelCreate>key}"
+                                        text="{oComboBoxModelCreate>text}"
+                                    />
+                                </ComboBox>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

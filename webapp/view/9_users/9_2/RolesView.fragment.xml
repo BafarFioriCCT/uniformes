@@ -1,0 +1,199 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Rol">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Rol"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de Roles"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVRol"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedRol"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVRol"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVRol"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVRol"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Rol"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonRol"
+                    text="Agregar rol"
+                    icon="sap-icon://add-product"
+                    press="onCreateDialogRol"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonRol"
+                    text="Modificar rol"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogRol"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonRol"
+                    text="Eliminar rol"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogRol"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3Rol"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableRol"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemRol"
+                inset="false"
+                growing="true"
+                growingThreshold="15"
+                paste="onPaste"
+                items="{path: 'oDataModel>/RolesSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de Roles"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchRol"
+                            change="onChangeRol"
+                            selectionChange="onChangeRol"
+                            width="20%"
+                            selectedKey="Rol"
+                            items="{ path: 'oComboBoxModelSearch>/12/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldRol"
+                            search="handleSearchFieldRol"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedRol"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmRol"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Rol" />
+                    </Column>
+                    <Column>
+                        <Text text="Descripción" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>Rol}" />
+                            <Text text="{oDataModel>Descripcion}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

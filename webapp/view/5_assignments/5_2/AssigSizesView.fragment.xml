@@ -1,0 +1,237 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1TaAsi">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1TaAsi"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de tallas asignadas"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVTaAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedTaAsi"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVTaAsig"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVTaAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVTaAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2TaAsi"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonTaAsi"
+                    text="Agregar talla"
+                    icon="sap-icon://add-employee"
+                    press="onCreateDialogTaAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonTaAsi"
+                    text="Eliminar talla"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogTaAsig"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3TaAsi"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableTaAsi"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemTaAsig"
+                inset="false"
+                growing="true"
+                growingThreshold="10"
+                paste="onPaste"
+                items="{path: 'oDataModel>/TallasAsigSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de tallas asignadas"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="cBoxTaAsig"
+                            change="onChangeTaAsig"
+                            selectionChange="onChangeTaAsig"
+                            width="20%"
+                            selectedKey="IdTaAs"
+                            items="{ path: 'oComboBoxModelSearch>/7/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="sFieldTaSig"
+                            search="handleSearchFieldTaAsig"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedTaAsig"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Filtro"
+                            icon="sap-icon://filter"
+                            press="handleFilterBtnPressedTaAsig"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmTaAsig"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="ID Asignación" />
+                    </Column>
+                    <Column>
+                        <Text text="División" />
+                    </Column>
+                    <Column>
+                        <Text text="N° Empleado" />
+                    </Column>
+                    <Column>
+                        <Text text="Nombre" />
+                    </Column>
+                    <Column>
+                        <Text text="¿Uniforme?" />
+                    </Column>
+                    <Column>
+                        <Text text="Pantalón" />
+                    </Column>
+                    <Column>
+                        <Text text="Camisa" />
+                    </Column>
+                    <Column>
+                        <Text text="Playera" />
+                    </Column>
+                    <Column>
+                        <Text text="Calzado" />
+                    </Column>
+                    <Column>
+                        <Text text="Chamarra" />
+                    </Column>
+                    <Column>
+                        <Text text="Mandil" />
+                    </Column>
+                    <Column>
+                        <Text text="Bata" />
+                    </Column>
+                    <Column>
+                        <Text text="Faja" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>IdTaAs}" />
+                            <Text text="{oDataModel>IdAsign}" />
+                            <Text text="{oDataModel>Division}" />
+                            <Text text="{oDataModel>NoEmp}" />
+                            <Text text="{oDataModel>NombreEmp}" />
+                            <Text text="{oDataModel>Uniforme}" />
+                            <Text text="{oDataModel>Pantalon}" />
+                            <Text text="{oDataModel>Camisa}" />
+                            <Text text="{oDataModel>Playera}" />
+                            <Text text="{oDataModel>Calzado}" />
+                            <Text text="{oDataModel>Chamarra}" />
+                            <Text text="{oDataModel>Mandil}" />
+                            <Text text="{oDataModel>Bata}" />
+                            <Text text="{oDataModel>Faja}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

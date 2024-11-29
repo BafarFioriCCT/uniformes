@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirmEnc">
+		<sortItems>
+			<ViewSettingsItem text="N° Empleado" key="NoEmp" selected="true" />
+			<ViewSettingsItem text="Nombre" key="Rh" />
+			<ViewSettingsItem text="Ciudad 1" key="Ciudad1" />
+			<ViewSettingsItem text="División 1" key="Division1" />
+            <ViewSettingsItem text="Ciudad 2" key="Ciudad2" />
+			<ViewSettingsItem text="División 2" key="Division2" />
+			<ViewSettingsItem text="Ciudad 3" key="Ciudad3" />
+			<ViewSettingsItem text="División 3" key="Division3" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

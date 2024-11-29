@@ -1,0 +1,237 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Asig">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Asig"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de asignaciones"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedAsig"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVAsig"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Asig"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonAsig"
+                    text="Agregar asignación"
+                    icon="sap-icon://add-employee"
+                    press="onCreateDialogAsig"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonAsig"
+                    text="Modificar asignación"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogAsig"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonAsig"
+                    text="Eliminar asignación"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogAsig"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3Asig"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableAsig"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemAsig"
+                inset="false"
+                growing="true"
+                growingThreshold="10"
+                paste="onPaste"
+                items="{path: 'oDataModel>/AsignacionSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de asignaciones"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchAsig"
+                            change="onChangeAsig"
+                            selectionChange="onChangeAsig"
+                            width="20%"
+                            selectedKey="IdAsign"
+                            items="{ path: 'oComboBoxModelSearch>/6/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldAsig"
+                            search="handleSearchFieldAsig"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedAsig"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmAsig"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="ID Documento" />
+                    </Column>
+                    <Column>
+                        <Text text="Encargado" />
+                    </Column>
+                    <Column>
+                        <Text text="Función" />
+                    </Column>
+                    <Column>
+                        <Text text="División" />
+                    </Column>
+                    <Column>
+                        <Text text="Unidad Organizativa" />
+                    </Column>
+                    <Column>
+                        <Text text="N° Empleado" />
+                    </Column>
+                    <Column>
+                        <Text text="Tipo Uniforme" />
+                    </Column>
+                    <Column>
+                        <Text text="Talla General" />
+                    </Column>
+                    <Column>
+                        <Text text="Fecha Asignación" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>IdAsign}" />
+                            <Text text="{oDataModel>IdDocEv}" />
+                            <Text text="{oDataModel>Encargado}" />
+                            <Text text="{oDataModel>Funcion}" />
+                            <Text text="{oDataModel>Division}" />
+                            <Text text="{oDataModel>UnidadOrg}" />
+                            <Text text="{oDataModel>NoEmp}" />
+                            <Text text="{oDataModel>TipoUnif}" />
+                            <Text text="{oDataModel>TallaGral}" />
+                            <Text
+                                    text="{
+                                    path: 'oDataModel>FechaAsign', 
+                                    type: 'sap.ui.model.type.Date', 
+                                    formatOptions: {UTC: true, pattern: 'dd.MM.yyyy' }
+                                    }"
+                                />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

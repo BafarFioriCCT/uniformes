@@ -1,0 +1,240 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Rot">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Rot"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de rotaciones tempranas"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVRot"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedRot"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVRot"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVRot"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVRot"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Rot"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonRot"
+                    text="Agregar rotación"
+                    icon="sap-icon://add-employee"
+                    press="onCreateDialogRot"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonRot"
+                    text="Modificar rotación"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogRot"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonRot"
+                    text="Eliminar rotación"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogRot"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3Rot"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableRot"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemRot"
+                inset="false"
+                growing="true"
+                growingThreshold="10"
+                paste="onPaste"
+                items="{path: 'oDataModel>/RotTempSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de rotaciones tempranas"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchRot"
+                            change="onChangeRot"
+                            selectionChange="onChangeRot"
+                            width="20%"
+                            selectedKey="IdRt"
+                            items="{ path: 'oComboBoxModelSearch>/10/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldRot"
+                            search="handleSearchFieldRot"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedRot"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Filtro"
+                            icon="sap-icon://filter"
+                            press="handleFilterBtnPressedRot"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmRot"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="ID Asignación" />
+                    </Column>
+                    <Column>
+                        <Text text="Fecha Ingreso" />
+                    </Column>
+                    <Column>
+                        <Text text="N° Empleado" />
+                    </Column>
+                    <Column>
+                        <Text text="Tipo Uniforme" />
+                    </Column>
+                    <Column>
+                        <Text text="Fecha Egreso" />
+                    </Column>
+                    <Column>
+                        <Text text="¿Cobro Uniforme?" />
+                    </Column>
+                    <Column>
+                        <Text text="Cantidad" />
+                    </Column>
+                    <Column>
+                        <Text text="Cuenta" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>IdRt}" />
+                            <Text text="{oDataModel>IdAsign}" />
+                            <Text text="{
+                                path: 'oDataModel>FechaIngreso', 
+                                type: 'sap.ui.model.type.Date', 
+                                formatOptions: {UTC: true, pattern: 'dd.MM.yyyy' }
+                                }" />
+                            <Text text="{oDataModel>NoEmp}" />
+                            <Text text="{oDataModel>TipoUnif}" />
+                            <Text text="{
+                                path: 'oDataModel>FechaEgreso', 
+                                type: 'sap.ui.model.type.Date', 
+                                formatOptions: {UTC: true, pattern: 'dd.MM.yyyy' }
+                                }" />
+                            <Text text="{oDataModel>CobroUnif}" />
+                            <Text text="{oDataModel>Cantidad}" />
+                            <Text text="{oDataModel>Cuenta}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

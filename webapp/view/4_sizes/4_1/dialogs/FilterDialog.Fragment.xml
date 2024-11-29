@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirmTaGral">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="Talla"
+				key="Talla"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="UNITALLA" key="Talla___UNITALLA" />
+					<ViewSettingsItem text="XS" key="Talla___XS" />
+					<ViewSettingsItem text="CH" key="Talla___CH" />
+					<ViewSettingsItem text="M" key="Talla___M" />
+					<ViewSettingsItem text="G" key="Talla___G" />
+					<ViewSettingsItem text="XL" key="Talla___XL" />
+					<ViewSettingsItem text="2XL" key="Talla___2XL" />
+					<ViewSettingsItem text="3XL" key="Talla___3XL" />
+					<ViewSettingsItem text="4XL" key="Talla___4XL" />
+					<ViewSettingsItem text="5XL" key="Talla___5XL" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Tipo"
+				key="Tipo"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="MANDIL" key="Tipo___MANDIL" />
+					<ViewSettingsItem text="CALZADO" key="Tipo___CALZADO" />
+					<ViewSettingsItem text="PANTALON" key="Tipo___PANTALON" />
+					<ViewSettingsItem text="CAMISA" key="Tipo___CAMISA" />
+					<ViewSettingsItem text="CHAMARRA" key="Tipo___CHAMARRA" />
+					<ViewSettingsItem text="PLAYERA" key="Tipo___PLAYERA" />
+					<ViewSettingsItem text="BATA" key="Tipo___BATA" />
+					<ViewSettingsItem text="FAJA" key="Tipo___FAJA" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

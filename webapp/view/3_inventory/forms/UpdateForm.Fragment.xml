@@ -1,0 +1,270 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <MessageStrip
+            text="Recuerde que los campos referenciados a este registro, se modificarán."
+            type="Warning"
+            showIcon="true"
+        />
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <!--****************************************ID_INV****************************************-->
+                        <f:FormElement label="ID*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateIdInv"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************FUNCION/DIVISION****************************************-->
+                        <f:FormElement label="Función*/División">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateFuncion"
+                                        enabled="false"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdateDivision"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************ARTICULO****************************************-->
+                        <f:FormElement label="Artículo*">
+                            <f:fields>
+                                <TextArea
+                                    id="inpUpdateArticulo"
+                                    growing="true"
+                                    growingMaxLines="5"
+                                    width="100%"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA_GRAL****************************************-->
+                        <f:FormElement label="Talla General*">
+                            <f:fields>
+                                <Input
+                                        id="inpUpdateTallaGral"
+                                        type="Text"
+                                        textFormatMode="KeyValue"
+                                        placeholder="Busque la talla general..."
+                                        showSuggestion="true"
+                                        showValueHelp="true"
+                                        valueHelpRequest="handleValueHelpUpdateTaGral"
+                                    >
+                                    </Input>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************COLOR****************************************-->
+                        <f:FormElement label="Color">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateColor"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TIPO/LOGO****************************************-->
+                        <f:FormElement label="Tipo*/Logo">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateTipo"
+                                        type="Text"
+                                        textFormatMode="KeyValue"
+                                        placeholder="Busque el tipo de ropa..."
+                                        showSuggestion="true"
+                                        showValueHelp="true"
+                                        valueHelpRequest="handleValueHelpUpdateTipo"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdateLogo"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************VIDA_UTIL****************************************-->
+                        <f:FormElement label="Vida Útil*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateVidaUtil"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA1/PRECIO1****************************************-->
+                        <f:FormElement label="Talla 1*/Precio 1*">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateTalla1"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdatePrecio1"
+                                        width="160%"
+                                        description="$MXN"
+                                        type="Number"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA2/PRECIO2****************************************-->
+                        <f:FormElement label="Talla 2/Precio 2">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateTalla2"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdatePrecio2"
+                                        width="160%"
+                                        description="$MXN"
+                                        type="Number"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************TALLA3/PRECIO3****************************************-->
+                        <f:FormElement label="Talla 3/Precio 3">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <Input
+                                        id="inpUpdateTalla3"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input
+                                        id="inpUpdatePrecio3"
+                                        width="160%"
+                                        description="$MXN"
+                                        type="Number"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************PROVEEDOR****************************************-->
+                        <f:FormElement label="Proveedor*">
+                            <f:fields>
+                                <Input
+                                    id="inpUpdateProveedor"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <!--****************************************FECHA_ENTRADA/CANT_ENT****************************************-->
+                        <f:FormElement label="Fecha Entrada*/Cantidad Entrada*">
+                            <f:fields>
+                                <FlexBox
+                                    class="columns"
+                                >
+                                    <DatePicker
+                                        id="dPickUpdateFechaEntr"
+                                        placeholder="Seleccione una fecha ..."
+                                        valueFormat="dd.MM.yyyy"
+                                        class="sapUiSmallMarginBottom">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginEnd" />
+                                        </layoutData>
+                                    </DatePicker>
+                                    <Input
+                                        id="inpUpdateCantEntr"
+                                        enabled="false"
+                                    >
+                                        <layoutData>
+                                            <FlexItemData growFactor="1"
+                                                styleClass="sapUiTinyMarginBegin" />
+                                        </layoutData>
+                                    </Input>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,123 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <MessageStrip
+            text="Recuerde que los campos referenciados a este registro, se modificarán."
+            type="Warning"
+            showIcon="true"
+        />
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Función*">
+                            <f:fields>
+                                <Input
+                                    id="updateFuncion"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="¿Hijos/Uniforme?*">
+                            <f:fields>
+                                <FlexBox
+                                    renderType="Bare"
+                                    alignItems="Start"
+                                    justifyContent="SpaceBetween"
+                                >
+                                    <Input
+                                        id="updateHijos"
+                                        width="45%"
+                                        enabled="false"
+                                    />
+                                    <ComboBox
+                                        id="cbUpdateUniforme"
+                                        width="45%"
+                                        change="onChangeUpdateUniforme"
+                                        selectionChange="onChangeUpdateUniforme"
+                                        items="{ path: 'oComboBoxModelUpdate>/0/values/0/Uniforme'}"
+                                    >
+                                        <core:Item
+                                            key="{oComboBoxModelUpdate>key}"
+                                            text="{oComboBoxModelUpdate>text}"
+                                        />
+                                    </ComboBox>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Tipo Uniforme*">
+                            <f:fields>
+                                <Input
+                                    id="updateTipoUniforme"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Sociedad*">
+                            <f:fields>
+                                <ComboBox
+                                    id="cbUpdateSociedad"
+                                    change="onChangeUpdateSociedad"
+                                    selectionChange="onChangeUpdateSociedad"
+                                    items="{ path: 'oComboBoxModelUpdate>/0/values/1/Sociedad'}"
+                                >
+                                    <core:Item
+                                        key="{oComboBoxModelUpdate>key}"
+                                        text="{oComboBoxModelUpdate>text}"
+                                    />
+                                </ComboBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Denominación Función*">
+                            <f:fields>
+                                <Input
+                                    id="updateDenomFuncion"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Nombre Paquete*">
+                            <f:fields>
+                                <Input
+                                    id="updateNomPaquete"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Descripción">
+                            <f:fields>
+                                <TextArea
+                                    id="updateDescripcion"
+                                    growing="true"
+                                    growingMaxLines="10"
+                                    width="100%"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

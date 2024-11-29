@@ -1,0 +1,98 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1ListDoc">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1ListDoc"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de documentos"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar todos los documentos"
+                    icon="sap-icon://download"
+                    press="downloadAllFilesListDoc"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedListDoc"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedFilesListDoc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnPreviewSelectedListDoc"
+                    text="Vista previa seleccionado PDF"
+                    icon="sap-icon://multi-select"
+                    press="previewSelectedPdfListDoc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************LISTA****************************************-->
+        <VBox
+            id="VB2_2ListDoc"
+            class="sapUiTinyMargin"
+        >
+            <List
+                id="listDoc"
+                includeItemInSelection="true"
+                growing="true"
+                growingThreshold="15"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemListDoc"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="Lista de documentos" level="H2" />
+                            <ToolbarSpacer />
+                            <SearchField
+                                id="searchFieldListDoc"
+                                liveChange="onSearchListDoc"
+                                width="45%"
+                            />
+                            <Button
+                                tooltip="Reestablecer datos"
+                                icon="sap-icon://reset"
+                                press="handleResetBtnConfirmListDoc"
+                            />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+            </List>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

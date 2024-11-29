@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirmPaq">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="Hijos"
+				key="Hijos"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Si tiene operadores hijos" key="Hijos___SI" />
+					<ViewSettingsItem text="No tiene operadores hijos" key="Hijos___NO" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Uniforme"
+				key="Uniforme"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Si lleva uniforme" key="Uniforme___SI" />
+					<ViewSettingsItem text="No lleva uniforme" key="Uniforme___NO" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Sociedad"
+				key="Sociedad"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="DPC" key="Sociedad___DPC" />
+					<ViewSettingsItem text="PLANTAS" key="Sociedad___PLANTAS" />
+					<ViewSettingsItem text="RETAIL" key="Sociedad___RETAIL" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

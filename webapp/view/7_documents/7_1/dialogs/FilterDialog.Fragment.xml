@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirmDoc">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="Tipo de documento"
+				key="Tipo"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Documento PDF" key="Tipo___pdf" />
+					<ViewSettingsItem text="Documento DOCX" key="Tipo___docx" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Estado de documento"
+				key="Estado"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Firmado" key="Estado___Firmado" />
+					<ViewSettingsItem text="Pendiente" key="Estado___Pendiente" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

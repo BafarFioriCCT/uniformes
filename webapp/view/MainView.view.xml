@@ -1,0 +1,209 @@
+<mvc:View
+    controllerName="zuniformes.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+>
+    <tnt:ToolPage id="mainPage">
+        <tnt:header>
+            <f:ShellBar
+                id="shellBar"
+                title="Grupo Bafar"
+                secondTitle="CRM"
+                showMenuButton="true"
+                showCopilot="true"
+                menuButtonPressed="onMenuButtonPress"
+            >
+            </f:ShellBar>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                expanded="true"
+                selectedKey="{oSideBar>/selectedKey}"
+                itemSelect="onItemSelect"
+            >
+                <tnt:NavigationList items="{path: 'oSideBar>/navigation'}">
+                    <tnt:NavigationListItem
+                        text="{oSideBar>title}"
+                        icon="{oSideBar>icon}"
+                        enabled="{oSideBar>enabled}"
+                        expanded="{oSideBar>expanded}"
+                        items="{oSideBar>items}"
+                        key="{oSideBar>key}"
+                    >
+                        <tnt:NavigationListItem
+                            id="navListItem"
+                            text="{oSideBar>title}"
+                            key="{oSideBar>key}"
+                            enabled="{oSideBar>enabled}"
+                        />
+                    </tnt:NavigationListItem>
+                </tnt:NavigationList>
+                <tnt:fixedItem>
+                    <tnt:NavigationList items="{path: 'oSideBar>/fixedNavigation'}">
+                        <tnt:NavigationListItem
+                            text="{oSideBar>title}"
+                            icon="{oSideBar>icon}"
+                        />
+                    </tnt:NavigationList>
+                </tnt:fixedItem>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <NavContainer
+                id="pageContainer"
+                initialPage="1_home"
+            >
+                <pages>
+                    <!--****************************************INICIO****************************************-->
+                    <ScrollContainer
+                        id="1_home"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="homeContainer" />
+                    </ScrollContainer>
+                    <!--****************************************PAQUETES****************************************-->
+                    <ScrollContainer
+                        id="2_1_packages"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="2_1packageContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="2_2_operators"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="2_2packageContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="2_3_as_paq_op"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="2_3packageContainer" />
+                    </ScrollContainer>
+                    <!--****************************************INVENTARIO****************************************-->
+                    <ScrollContainer
+                        id="3_inventory"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="3inventoryContainer" />
+                    </ScrollContainer>
+                    <!--****************************************TALLAS****************************************-->
+                    <ScrollContainer
+                        id="4_1_sizes"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="4_1sizesContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="4_2_sizes"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="4_2sizesContainer" />
+                    </ScrollContainer>
+                    <!--****************************************ASIGNACIONES****************************************-->
+                    <ScrollContainer
+                        id="5_1_assignments"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="5_1assignContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="5_2_assignments"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="5_2assignContainer" />
+                    </ScrollContainer>
+                    <!--****************************************ENCARGADOS****************************************-->
+                    <ScrollContainer
+                        id="6_in_charge"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="6inChargeContainer" />
+                    </ScrollContainer>
+                    <!--****************************************EVIDENCIA****************************************-->
+                    <ScrollContainer
+                        id="7_1_documents"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="7_1documentsContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="7_2_documents"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="7_2documentsContainer" />
+                    </ScrollContainer>
+                    <!--****************************************ROTACIONES****************************************-->
+                    <ScrollContainer
+                        id="8_1_rotations"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="8_1rotationsContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="8_2_rotations"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="8_2rotationsContainer" />
+                    </ScrollContainer>
+                    <!--****************************************USUARIOS****************************************-->
+                    <ScrollContainer
+                        id="9_1_users"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="9_1usersContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="9_2_users"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="9_2usersContainer" />
+                    </ScrollContainer>
+                    <ScrollContainer
+                        id="9_3_users"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                    >
+                        <VBox id="9_3usersContainer" />
+                    </ScrollContainer>
+                </pages>
+            </NavContainer>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

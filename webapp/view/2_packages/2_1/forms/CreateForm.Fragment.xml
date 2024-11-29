@@ -1,0 +1,129 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Función*">
+                            <f:fields>
+                                <MaskInput
+                                    id="inpCreateFuncion"
+                                    mask="99999999"
+                                    placeholderSymbol="_"
+                                    placeholder="Ingrese una función de ocho dígitos" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="¿Hijos/Uniforme?*">
+                            <f:fields>
+                                <FlexBox
+                                    renderType="Bare"
+                                    alignItems="Start"
+                                    justifyContent="SpaceBetween"
+                                >
+                                    <ComboBox
+                                        id="cBoxCreateHijos"
+                                        width="45%"
+                                        change="onChangeCreateHijos"
+                                        selectionChange="onChangeCreateHijos"
+                                        selectedKey="NO"
+                                        items="{ path: 'oComboBoxModelCreate>/0/values/0/Hijos'}"
+                                    >
+                                        <core:Item
+                                            key="{oComboBoxModelCreate>key}"
+                                            text="{oComboBoxModelCreate>text}"
+                                        />
+                                    </ComboBox>
+                                    <ComboBox
+                                        id="cBoxCreateUniforme"
+                                        width="45%"
+                                        change="onChangeCreateUniforme"
+                                        selectionChange="onChangeCreateUniforme"
+                                        selectedKey="SI"
+                                        items="{ path: 'oComboBoxModelCreate>/0/values/1/Uniforme'}"
+                                    >
+                                        <core:Item
+                                            key="{oComboBoxModelCreate>key}"
+                                            text="{oComboBoxModelCreate>text}"
+                                        />
+                                    </ComboBox>
+                                </FlexBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Tipo Uniforme*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateTipoUniforme"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Sociedad*">
+                            <f:fields>
+                                <ComboBox
+                                    id="cBoxCreateSociedad"
+                                    change="onChangeCreateSociedad"
+                                    selectionChange="onChangeCreateSociedad"
+                                    selectedKey="DPC"
+                                    items="{ path: 'oComboBoxModelCreate>/0/values/2/Sociedad'}"
+                                >
+                                    <core:Item
+                                        key="{oComboBoxModelCreate>key}"
+                                        text="{oComboBoxModelCreate>text}"
+                                    />
+                                </ComboBox>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Denominación Función*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateDenomFuncion"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Nombre Paquete*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateNomPaquete"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Descripción">
+                            <f:fields>
+                                <TextArea
+                                    id="inpCreateDescripcion"
+                                    growing="true"
+                                    growingMaxLines="10"
+                                    width="100%"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

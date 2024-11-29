@@ -1,0 +1,212 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Doc">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Doc"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de evidencias"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVDoc"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedDoc"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVDoc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Doc"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonDoc"
+                    text="Agregar documento"
+                    icon="sap-icon://add-document"
+                    press="onCreateDialogDoc"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonDoc"
+                    text="Modificar registro"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogDoc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonDoc"
+                    text="Eliminar documento"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogDoc"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3Doc"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tableDoc"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemDoc"
+                inset="false"
+                growing="true"
+                growingThreshold="10"
+                paste="onPaste"
+                items="{path: 'oDataModel>/DocEvidenciaSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de evidencias"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchDoc"
+                            change="onChangeDoc"
+                            selectionChange="onChangeDoc"
+                            width="20%"
+                            selectedKey="IdDocEv"
+                            items="{ path: 'oComboBoxModelSearch>/9/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldDoc"
+                            search="handleSearchFieldDoc"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedDoc"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Filtro"
+                            icon="sap-icon://filter"
+                            press="handleFilterBtnPressedDoc"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmDoc"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="ID" />
+                    </Column>
+                    <Column>
+                        <Text text="Nombre" />
+                    </Column>
+                    <Column>
+                        <Text text="Tipo" />
+                    </Column>
+                    <Column>
+                        <Text text="Fecha Creación" />
+                    </Column>
+                    <Column>
+                        <Text text="Creado Por" />
+                    </Column>
+                    <Column>
+                        <Text text="Tamaño Archivo" />
+                    </Column>
+                    <Column>
+                        <Text text="URL Almacenado" />
+                    </Column>
+                    <Column>
+                        <Text text="ID Objeto" />
+                    </Column>
+                    <Column>
+                        <Text text="Estado" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>IdDocEv}" />
+                            <Text text="{oDataModel>Nombre}" />
+                            <Text text="{oDataModel>Tipo}" />
+                            <Text
+                                    text="{
+                                    path: 'oDataModel>FechaCreacion', 
+                                    type: 'sap.ui.model.type.Date', 
+                                    formatOptions: {UTC: true, pattern: 'dd.MM.yyyy' }
+                                    }"
+                                />
+                            <Text text="{oDataModel>CreadoPor}" />
+                            <Text text="{oDataModel>TamArchivo}" />
+                            <Text text="{oDataModel>UrlAlmacenado}" />
+                            <Text text="{oDataModel>IdObjeto}" />
+                            <Text text="{oDataModel>Estado}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,97 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox class="sapUiSmallMargin">
+        <f:Form
+            editable="true"
+        >
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="ID Inventario*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateIdInv"
+                                    type="Number"
+                                    textFormatMode="KeyValue"
+                                    placeholder="Busque el inventario..."
+                                    showValueHelp="true"
+                                    valueHelpRequest="handleValueHelpIdInv"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Artículo*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateArticulo"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="ID Talla General*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateIdTaGr"
+                                    type="Number"
+                                    textFormatMode="KeyValue"
+                                    placeholder="Busque la talla general..."
+                                    showValueHelp="true"
+                                    valueHelpRequest="handleValueHelpIdTaGr"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Talla*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateTalla"
+                                    enabled="false"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="ID Asignación*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreateIdAsign"
+                                    type="Number"
+                                    textFormatMode="KeyValue"
+                                    placeholder="Busque la asignación..."
+                                    showValueHelp="true"
+                                    valueHelpRequest="handleValueHelpTaInv_IdAsign"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Precio*">
+                            <f:fields>
+                                <Input
+                                    id="inpCreatePrecio"
+                                    type="Number"
+                                />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

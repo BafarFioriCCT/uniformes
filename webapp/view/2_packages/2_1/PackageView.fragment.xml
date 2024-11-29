@@ -1,0 +1,231 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <VBox id="VB1Paq">
+        <!--****************************************DESCARGAS****************************************-->
+        <VBox
+            id="VB2_1Paq"
+            class="sapUiTinyMargin"
+        >
+            <Title
+                text="Administrador de paquetes"
+                level="H1"
+                class="sapUiTinyMargin"
+            />
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="btnDownloadPaq"
+                    text="Descargar documento"
+                    icon="sap-icon://download"
+                    press="downloadAllCSVPaq"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadSelectedPaq"
+                    text="Descargar seleccionados"
+                    icon="sap-icon://multi-select"
+                    press="downloadSelectedCSVPaq"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnDownloadTemplatePaq"
+                    text="Descargar plantilla"
+                    icon="sap-icon://excel-attachment"
+                    press="downloadTemplateCSVPaq"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="btnUploadPaq"
+                    text="Subir documento"
+                    icon="sap-icon://upload"
+                    press="uploadCSVPaq"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--************************************BOTÓNES CRUD*************************************-->
+        <VBox
+            id="VB2_2Paq"
+            class="sapUiTinyMargin"
+        >
+            <FlexBox class="columns" renderType="Bare">
+                <Button
+                    id="createButtonPaq"
+                    text="Agregar paquete"
+                    icon="sap-icon://add-product"
+                    press="onCreateDialogPaq"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="updateButtonPaq"
+                    text="Modificar paquete"
+                    icon="sap-icon://edit"
+                    press="onUpdateDialogPaq"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+                <Button
+                    id="deleteButtonPaq"
+                    text="Eliminar paquete"
+                    icon="sap-icon://delete"
+                    press="onDeleteDialogPaq"
+                    enabled="false"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            growFactor="1"
+                            baseSize="0"
+                            styleClass="sapUiTinyMargin"
+                        />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </VBox>
+        <!--****************************************TABLA****************************************-->
+        <VBox
+            id="VB2_3Paq"
+            class="sapUiTinyMargin"
+        >
+            <Table
+                id="tablePaq"
+                sticky="ColumnHeaders"
+                mode="MultiSelect"
+                selectionChange="onSelectedItemPaq"
+                inset="false"
+                growing="true"
+                growingThreshold="10"
+                paste="onPaste"
+                items="{path: 'oDataModel>/PaqueteSet'}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text="Tabla de paquetes"
+                            level="H1"
+                        />
+                        <ToolbarSpacer />
+                        <ComboBox
+                            id="comboBoxSearchPaq"
+                            change="onChangePaq"
+                            selectionChange="onChangePaq"
+                            width="20%"
+                            selectedKey="Funcion"
+                            items="{ path: 'oComboBoxModelSearch>/0/values'}"
+                        >
+                            <core:Item
+                                key="{oComboBoxModelSearch>key}"
+                                text="{oComboBoxModelSearch>text}"
+                            />
+                        </ComboBox>
+                        <SearchField
+                            id="searchFieldPaq"
+                            search="handleSearchFieldPaq"
+                            width="40%"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Ordenar"
+                            icon="sap-icon://sort"
+                            press="handleSortBtnPressedPaq"
+                        />
+                        <Button
+                            tooltip="Ver Opciones Filtro"
+                            icon="sap-icon://filter"
+                            press="handleFilterBtnPressedPaq"
+                        />
+                        <Button
+                            tooltip="Reestablecer datos"
+                            icon="sap-icon://reset"
+                            press="handleResetBtnConfirmPaq"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Funcion" />
+                    </Column>
+                    <Column>
+                        <Text text="¿Hijos?" />
+                    </Column>
+                    <Column>
+                        <Text text="¿Uniforme?" />
+                    </Column>
+                    <Column>
+                        <Text text="Tipo Uniforme" />
+                    </Column>
+                    <Column>
+                        <Text text="Sociedad" />
+                    </Column>
+                    <Column>
+                        <Text text="Denom. Func." />
+                    </Column>
+                    <Column>
+                        <Text text="Paquete" />
+                    </Column>
+                    <Column>
+                        <Text text="Descripción" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{oDataModel>Funcion}" />
+                            <Text text="{oDataModel>Hijos}" />
+                            <Text text="{oDataModel>Uniforme}" />
+                            <Text text="{oDataModel>TipoUniforme}" />
+                            <Text text="{oDataModel>Sociedad}" />
+                            <Text text="{oDataModel>DenomFunc}" />
+                            <Text text="{oDataModel>NomPaquete}" />
+                            <Text text="{oDataModel>Descripcion}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </VBox>
+</core:FragmentDefinition>

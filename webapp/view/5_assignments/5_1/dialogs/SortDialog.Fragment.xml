@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirmAsig">
+		<sortItems>
+			<ViewSettingsItem text="ID" key="IdAsign" selected="true" />
+			<ViewSettingsItem text="ID Documento" key="IdDocEv" />
+			<ViewSettingsItem text="ID Talla Inventario" key="IdTaInv" />
+			<ViewSettingsItem text="Encargado" key="Encargado" />
+            <ViewSettingsItem text="Función" key="Funcion" />
+			<ViewSettingsItem text="División" key="Division" />
+			<ViewSettingsItem text="Unidad Organizativa" key="UnidadOrg" />
+			<ViewSettingsItem text="N° Empleado" key="NoEmp" />
+			<ViewSettingsItem text="Tipo Uniforme" key="TipoUnif" />
+			<ViewSettingsItem text="Talla General" key="TallaGral" />
+			<ViewSettingsItem text="Fecha Asignación" key="FechaAsign" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirmRot">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="¿Cobro Uniforme?"
+				key="CobroUnif"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Si se cobra uniforme" key="CobroUnif___SI" />
+					<ViewSettingsItem text="No se cobra uniforme" key="CobroUnif___NO" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
