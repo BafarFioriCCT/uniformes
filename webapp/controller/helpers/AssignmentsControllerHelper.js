@@ -481,6 +481,9 @@ sap.ui.define([
                     TipoUnif: "",
                     TallaGral: "",
                     FechaAsign: "",
+                    IdInv: "",
+                    IdTaGr: "",
+                    Precio: "",
                 },
             ];
             var csv = MainControllerHelper.convertToCSV(columns);
