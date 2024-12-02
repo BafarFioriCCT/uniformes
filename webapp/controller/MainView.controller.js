@@ -4080,7 +4080,7 @@ sap.ui.define([
 
 			// Asignar eventos 'liveChange' a los inputs
 			this.componentsUpdateAsig.forEach(function (input) {
-				input.attachLiveChange(checkInputValues);
+				input.attachChange(checkInputValues);
 			});
 
 			// Comprobar el estado inicial para habilitar/deshabilitar el botón al cargar el diálogo
