@@ -332,12 +332,8 @@ sap.ui.define([
                         B1: register[0], //ID_ASIGN
                         B2: register[1], //ID_DOC_EV
                         B3: register[2], //ENCARGADO
-                        B4: register[3], //FUNCION
-                        B5: register[4], //DIVISION
-                        B6: register[5], //UNIDAD
                         B7: register[6], //NO_EMP
                         B8: register[7], //TIPO_UNIF
-                        B9: register[8], //TALLA_GRAL
                         B10: fechaAsign, //FECHA_ASIGN
                         //TALLAS_INV
                         B11: register[10], //ID_INV
