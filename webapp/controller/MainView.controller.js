@@ -4016,6 +4016,7 @@ sap.ui.define([
 							sharedData.inpUpdateIdAsign.getValue(),
 							sharedData.inpUpdateIdDocEv.getValue(),
 							sharedData.inpUpdateEnc.getValue(),
+							sharedData.inpUpdateNoEmp.getValue(),
 							fechaAsign,
 						]
 
@@ -4027,7 +4028,8 @@ sap.ui.define([
 								B1: oComponents[0], //ID_ASIGN
 								B2: oComponents[1], //ID_DOC_EV
 								B3: oComponents[2], //ENCARGADO
-								B10: oComponents[3], //FECHA_ASIGN
+								B7: oComponents[3], //NO_EMP
+								B10: oComponents[4], //FECHA_ASIGN
 							}]
 						).then(() => {
 							// Mensaje de éxito, se cierra y se destruye el Dialog
