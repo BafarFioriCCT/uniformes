@@ -471,7 +471,6 @@ sap.ui.define([
         downloadTemplateCSVAsig: function () {
             var columns = [
                 {
-                    Funcion: "",
                     IdAsign: "",
                     IdDocEv: "",
                     Encargado: "",
