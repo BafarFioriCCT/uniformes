@@ -5041,7 +5041,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedDoc: function () {
-			this.createViewSettingsDialog("zuniformes.view.7_documents.dialogs.SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.7_documents.7_1.dialogs.SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -5052,7 +5052,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedDoc: function () {
-			this.createViewSettingsDialog("zuniformes.view.7_documents.dialogs.FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.7_documents.7_1.dialogs.FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
