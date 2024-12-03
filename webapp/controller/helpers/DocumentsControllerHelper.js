@@ -9,7 +9,7 @@ sap.ui.define([
     'sap/m/StandardListItem',
     'sap/m/Dialog',
     'sap/m/Button',
-    'sap/m/PDFViewer',
+    'sap/m/Link',
 ], function (
     //?-----------------------OTROS-----------------------
     MainControllerHelper,
@@ -17,7 +17,7 @@ sap.ui.define([
     //?-----------------------SAP/UI-----------------------
     JSONModel,
     //?-----------------------SAP/M-----------------------
-    MessageToast, StandardListItem, Dialog, Button, PDFViewer
+    MessageToast, StandardListItem, Dialog, Button, Link,
 ) {
     "use strict";
 
@@ -104,37 +104,15 @@ sap.ui.define([
             }
         },
 
-        previewSelectedPdfListDoc: async function() {
+        previewSelectedListDoc: async function () {
             var that = this;
-            // Abrir un componente nuevo, agrega una capa más en nuestro fragmento
-			// Por lo cuál es necesario destruirlo al cerrarlo
-			// Para evitar duplicados
-			var dialog = new Dialog({
-				title: 'Vista previa PDF',
-				type: 'Message',
-                contentWidth:'98%',
-                contentHeight:'100%',
-				// El contenido será el subfragmento cargado al abrir este Dialog
-				content: [
-					new PDFViewer({
-                        height: '100%',
-                        source: await GraphHelper.previewFile(
-                            that.sharedData.selectedItemsListDoc[0].Nombre
-                        )
-                    })
-				],
-				// Cerrar y destruir el Dialog
-				endButton: new Button({
-					text: 'Cancelar',
-					press: function () {
-						dialog.close();
-						dialog.destroy();
-					}
-				}),
-			});
-
-			// Abrir el díalogo
-			dialog.open();
+            var link = window.location.href = await GraphHelper.previewFile(
+                that.sharedData.selectedItemsListDoc[0].Nombre
+            )
+            
+            if (link) {
+                window.location.replace(link, "_blank");
+            }
         },
 
         //?-----------------------SEARCHFIELD-----------------------
@@ -224,10 +202,7 @@ sap.ui.define([
         enableMainBtnsListDoc: function (length) {
             if (length == 1) {
                 this.sharedData.bDownSelectedListDoc.setEnabled(true);
-                // Sólo ver archivos PDF
-                if (this.sharedData.selectedItemsListDoc[0].Nombre.endsWith(".pdf")) {
-                    this.sharedData.bPreviewSelectedListDoc.setEnabled(true);
-                }
+                this.sharedData.bPreviewSelectedListDoc.setEnabled(true);
             } else if (length > 1) {
                 this.sharedData.bDownSelectedListDoc.setEnabled(true);
                 this.sharedData.bPreviewSelectedListDoc.setEnabled(false);

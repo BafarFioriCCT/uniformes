@@ -5086,8 +5086,8 @@ sap.ui.define([
 			DocumentsControllerHelper.downloadSelectedFilesListDoc();
 		},
 
-		previewSelectedPdfListDoc: function () {
-			DocumentsControllerHelper.previewSelectedPdfListDoc();
+		previewSelectedListDoc: function () {
+			DocumentsControllerHelper.previewSelectedListDoc();
 		},
 
 		//?-----------------------SEARCHFIELD-----------------------

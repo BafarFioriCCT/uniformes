@@ -46,9 +46,9 @@
                 </Button>
                 <Button
                     id="btnPreviewSelectedListDoc"
-                    text="Vista previa seleccionado PDF"
+                    text="Vista previa seleccionado"
                     icon="sap-icon://multi-select"
-                    press="previewSelectedPdfListDoc"
+                    press="previewSelectedListDoc"
                     enabled="false"
                 >
                     <layoutData>
