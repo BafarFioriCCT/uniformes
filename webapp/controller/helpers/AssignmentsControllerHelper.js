@@ -1192,6 +1192,9 @@ sap.ui.define([
                 sKey = mParams.sortItem.getKey(), // La key seleccionada para ordenar
                 bDescending = mParams.sortDescending,
                 aData = await MainControllerHelper.getSetOData("AsignacionSet"); // Orden ascendente o descendente
+            aData.forEach(item => {
+                item.FechaAsign = formatter.formatDateFromTimestamp(item.FechaAsign);
+            });
 
             // Función para ordenar los datos
             aData.sort(function (a, b) {
