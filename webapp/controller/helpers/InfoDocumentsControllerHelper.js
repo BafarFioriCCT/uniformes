@@ -568,22 +568,10 @@ sap.ui.define([
 
         //?-----------------------RESET-----------------------
         // Función para reiniciar la tabla originalmente
-        handleResetBtnConfirmDoc: async function () {
-            var aData = await MainControllerHelper.getSetOData("DocEvidenciaSet"); // Orden ascendente o descendente
-            aData.forEach(item => {
-                item.FechaCreacion = formatter.formatDateFromTimestamp(item.FechaCreacion);
-            });
-
-            // Crear un nuevo JSONModel con los datos ordenados
-            var oModel = new JSONModel();
-            oModel.setData({ DocEvidenciaSet: aData });
-
-            var oTable = this.sharedData.tableDoc;  // Obtener la tabla
-            oTable.setModel(oModel, "oDataModel");
-            oTable.bindItems({
-                path: "oDataModel>/DocEvidenciaSet",
-                template: oTable.getBindingInfo("items").template  // Mantener el template original
-            });
+        handleResetBtnConfirmDoc: function () {
+            // Set vacío al valor del SearchField para el filtro
+            this.sharedData.sFieldDoc.setValue("");
+            this.handleSearchFieldDoc();
 
             // Reinicia el arreglo de ToInAll
             MainControllerHelper.getSharedData().toInAll = [];
