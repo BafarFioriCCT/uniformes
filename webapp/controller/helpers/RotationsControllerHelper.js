@@ -299,7 +299,6 @@ sap.ui.define([
                 .mAggregations
                 .fields[0]; // inpUpdateCuenta
             this.sharedData.inpUpdateCuenta = oComponent;
-            console.log(oComponent)
             this.sharedData.inpUpdateCuenta.setValue(
                 this.sharedData.selectedItemsRot[0].Cuenta
             );
@@ -843,17 +842,9 @@ sap.ui.define([
                     };
                     that.sharedData.selectedItemsRot.push(oItem);
                 });
-
-                console.log("-----------------------------------");
-                console.log("Todos seleccionados");
-                console.log("-----------------------------------");
                 // Condición si se deseleccionaron todos los checkboxs
             } else if (!bSelectAll && aSelectedItems.length === 0) {
                 that.sharedData.selectedItemsRot = []; // Limpiar el array de items seleccionados
-
-                console.log("-----------------------------------");
-                console.log("Todos deseleccionados");
-                console.log("-----------------------------------");
                 // Condición si se seleccionó o no individualmente un checkbox
             } else if (!bSelectAll) {
                 // Handle individual row selection/deselection
@@ -880,16 +871,13 @@ sap.ui.define([
                         .filter(function (item) {
                             return item.IdRt !== oItem.IdRt;
                         });
-                    console.log("Elemento deseleccionado:", oItem);
                 } else {
                     // Si el item no está en el array, lo agregamos (selección individual)
                     that.sharedData.selectedItemsRot.push(oItem);
-                    console.log("Elemento seleccionado:", oItem);
                 }
             }
             // Actualiza el estado del botón en función del número de elementos seleccionados
             that.enableMainBtnsRot(that.sharedData.selectedItemsRot.length);
-            console.log(that.sharedData.selectedItemsRot);
         },
 
         // Función para habilitar los botónes Update y Delete

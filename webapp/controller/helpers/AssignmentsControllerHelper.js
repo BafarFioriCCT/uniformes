@@ -226,7 +226,6 @@ sap.ui.define([
                 .mAggregations
                 .fields[0]; // inpCreateTipoUnif
             this.sharedData.inpCreateTipoUnif = oComponent;
-            console.log(oComponent)
 
             oComponent = this.sharedData._oFgtAssigCreate // CreateForm.fragment.xml
                 .getItems()[0] // Form
@@ -877,7 +876,6 @@ sap.ui.define([
                     MainControllerHelper.getOData(request)
                         .then(async function (result) { // Then asíncrono
                             var valueTipoUnif = null;
-                            console.log(result)
 
                             // Sí arroja el resultado una Funcion, proseguir
                             if (result.Funcion.length > 0 && result.TipoUnif.length == 0) { //PaqOpSet
@@ -1267,17 +1265,9 @@ sap.ui.define([
                     };
                     that.sharedData.selectedItemsAsig.push(oItem);
                 });
-
-                console.log("-----------------------------------");
-                console.log("Todos seleccionados");
-                console.log("-----------------------------------");
                 // Condición si se deseleccionaron todos los checkboxs
             } else if (!bSelectAll && aSelectedItems.length === 0) {
                 that.sharedData.selectedItemsAsig = []; // Limpiar el array de items seleccionados
-
-                console.log("-----------------------------------");
-                console.log("Todos deseleccionados");
-                console.log("-----------------------------------");
                 // Condición si se seleccionó o no individualmente un checkbox
             } else if (!bSelectAll) {
                 // Handle individual row selection/deselection
@@ -1305,16 +1295,13 @@ sap.ui.define([
                         .filter(function (item) {
                             return item.IdAsign !== oItem.IdAsign;
                         });
-                    console.log("Elemento deseleccionado:", oItem);
                 } else {
                     // Si el item no está en el array, lo agregamos (selección individual)
                     that.sharedData.selectedItemsAsig.push(oItem);
-                    console.log("Elemento seleccionado:", oItem);
                 }
             }
             // Actualiza el estado del botón en función del número de elementos seleccionados
             that.enableMainBtnsAsig(that.sharedData.selectedItemsAsig.length);
-            console.log(that.sharedData.selectedItemsAsig);
         },
 
         // Función para habilitar los botónes Update y Delete

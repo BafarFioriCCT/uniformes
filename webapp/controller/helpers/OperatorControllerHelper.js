@@ -500,17 +500,9 @@ sap.ui.define([
                     };
                     that.sharedData.selectedItemsOpe.push(oItem);
                 });
-
-                console.log("-----------------------------------");
-                console.log("Todos seleccionados");
-                console.log("-----------------------------------");
                 // Condición si se deseleccionaron todos los checkboxs
             } else if (!bSelectAll && aSelectedItems.length === 0) {
                 that.sharedData.selectedItemsOpe = []; // Limpiar el array de items seleccionados
-
-                console.log("-----------------------------------");
-                console.log("Todos deseleccionados");
-                console.log("-----------------------------------");
                 // Condición si se seleccionó o no individualmente un checkbox
             } else if (!bSelectAll) {
                 // Handle individual row selection/deselection
@@ -532,16 +524,13 @@ sap.ui.define([
                         .filter(function (item) {
                             return item.OpFuncion !== oItem.OpFuncion;
                         });
-                    console.log("Elemento deseleccionado:", oItem);
                 } else {
                     // Si el item no está en el array, lo agregamos (selección individual)
                     that.sharedData.selectedItemsOpe.push(oItem);
-                    console.log("Elemento seleccionado:", oItem);
                 }
             }
             // Actualiza el estado del botón en función del número de elementos seleccionados
             that.enableMainBtnsOpe(that.sharedData.selectedItemsOpe.length);
-            console.log(that.sharedData.selectedItemsOpe);
         },
 
         // Función para habilitar los botónes Update y Delete

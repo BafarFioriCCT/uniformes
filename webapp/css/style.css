@@ -1,7 +1,3 @@
 .tableHdr .sapMListTblHeaderCell {
     padding: 0rem;
 }
-
-iframe.sapMPDFViewerContent.sapMPDFViewerReducedContent {
-    height: 78vh !important;
-}

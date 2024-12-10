@@ -1057,7 +1057,6 @@ sap.ui.define([
 				//*----------------------------------------------------------------
 				// Cargar permisos primero
 				await this.setUserPermissions();
-				console.log("Permisos cargados:", this.permissions);
 
 				//*----------------------------------------------------------------
 				//*| MAIN->CONTAINERS                                             |
@@ -1320,8 +1319,6 @@ sap.ui.define([
 						// Llama a Microsoft Graph API con el token
 						await GraphHelper.setGraphClient(); // Inicio del cliente de la API Graph
 						this.modelListDoc = await GraphHelper.getFiles(); // Modelo global de los archivos de OneDrive
-					} else {
-						console.log("No se pudo autenticar en segundo plano.");
 					}
 				}
 				if (this.permissions.ROTACIONES.LEER || this.permissions.ROTACIONES.ESCRIBIR) {
@@ -1806,7 +1803,6 @@ sap.ui.define([
 
 						MainControllerHelper.getOData(request) // Llamada GET para comprobar existencia
 							.then(function (result) {
-								console.log(result)
 								if (result !== undefined) { // Si no resulta indefinida la consulta
 									MessageBox.error("¡Paquete ya existente, ingrese uno nuevo!", {
 										title: "Error",                                      // default
@@ -3425,7 +3421,6 @@ sap.ui.define([
 
 						MainControllerHelper.getOData(request) // Llamada GET para comprobar existencia
 							.then(function (result) {
-								console.log(result)
 								if (result !== undefined) { // Si no resulta indefinida la consulta
 									MessageBox.error("¡Talla ya existente, ingrese uno nuevo!", {
 										title: "Error",                                      // default
@@ -3793,12 +3788,10 @@ sap.ui.define([
 							// Llamada GET para comprobar existencia
 							const result1 = await MainControllerHelper.getOData(request1);
 							var bool1Get = result1 == undefined;
-							console.log(bool1Get)
 
 							// Llamada GET para comprobar existencia
 							const result2 = await MainControllerHelper.getOData(request2);
 							var bool2Get = result2 == undefined;
-							console.log(bool2Get)
 
 							if (
 								!bool1Get || // Si no es indefinido el resultado, existe documento
@@ -3970,7 +3963,6 @@ sap.ui.define([
 			let valueTipoUnif = await AssignmentsControllerHelper.handleValueHelpTipoUnif();
 			if (valueTipoUnif) { // Si lo encuentra, sobresscribe el inpCreateTipoUnif
 				var asigShData = AssignmentsControllerHelper.getSharedData();
-				console.log(asigShData.inpCreateTipoUnif)
 				asigShData.inpCreateTipoUnif.setValue(valueTipoUnif);
 			}
 		},
@@ -4201,7 +4193,6 @@ sap.ui.define([
 
 						MainControllerHelper.getOData(request)
 							.then(function (result) {
-								console.log(result)
 								if (result !== undefined) {
 									MessageBox.error("¡Asignación ya existente, ingrese uno nuevo!", {
 										title: "Error",                                      // default
@@ -4420,10 +4411,8 @@ sap.ui.define([
 						try {
 							// Llamada GET para comprobar existencia
 							const result = await MainControllerHelper.getOData(request);
-							console.log(result)
 							// ENCARGADO YA EXISTENTE
 							var boolGet = result.NoEmp != 0 && result.Ciudad1.length > 0;
-							console.log(boolGet)
 
 							if (boolGet) { // Si arroja el NoEmp y la Ciudad1, ya existe en Encargados
 								MessageBox.error("¡Encargado ya existente en el sistema!", {
@@ -5179,7 +5168,6 @@ sap.ui.define([
 
 						MainControllerHelper.getOData(request)
 							.then(function (result) {
-								console.log(result)
 								if (result !== undefined) {
 									MessageBox.error("¡Rotación ya existente, ingrese uno nuevo!", {
 										title: "Error",                                      // default
@@ -5195,7 +5183,6 @@ sap.ui.define([
 
 									MainControllerHelper.getOData(request2)
 										.then(function (result) {
-											console.log(result)
 											if (result !== undefined) { //Empleado dado de baja del sistema
 												// Llamamos al método postMultipleOData, por el nombre de la entidad
 												// y el JSON referente a sus campos para insertar
@@ -5520,10 +5507,8 @@ sap.ui.define([
 						try {
 							// Llamada GET para comprobar existencia
 							const result = await MainControllerHelper.getOData(request);
-							console.log(result)
 							// ENCARGADO YA EXISTENTE
 							var boolGet = result.NoEmp.length > 0 && result.Rol.length > 0 && result.Nombre.length > 0
-							console.log(boolGet)
 
 							if (boolGet) { // Si arroja todo el ErEntity o si es indefinido
 								MessageBox.error("¡Usuario ya asignado y/o N° Empleado no existente en el sistema!", {
@@ -5740,7 +5725,6 @@ sap.ui.define([
 
 						MainControllerHelper.getOData(request)
 							.then(function (result) {
-								console.log(result)
 								if (result !== undefined) {
 									MessageBox.error("¡Rol ya existente, ingrese uno nuevo!", {
 										title: "Error",                                      // default
@@ -6026,7 +6010,6 @@ sap.ui.define([
 
 						MainControllerHelper.getOData(request)
 							.then(function (result) {
-								console.log(result)
 								if (result !== undefined) {
 									MessageBox.error("¡Permiso ya existente, ingrese uno nuevo!", {
 										title: "Error",                                      // default

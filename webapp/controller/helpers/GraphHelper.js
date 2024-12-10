@@ -52,7 +52,6 @@ sap.ui.define([
                     let response = await fetch(url, { method: "GET", headers: headers });
                     if (!response.ok) {
                         let data = await response.json();
-                        console.log(data.error.message)
                         reject("Error en la respuesta del JSON");
                     } else {
                         let data = await response.json();
@@ -110,7 +109,6 @@ sap.ui.define([
 
                 // Obtener el JSON de respuesta
                 const oData = await response.json();
-                console.log("Vista previa:", oData);
 
                 // Retorna la URL de la vista previa si está disponible
                 return oData.getUrl;
@@ -165,7 +163,6 @@ sap.ui.define([
 
                 // Devolver la respuesta exitosa
                 const result = await response.json();
-                console.log('Archivo subido con éxito:', result);
                 return result;
             } catch (error) {
                 console.error('Error durante la carga del archivo:', error);
@@ -180,7 +177,6 @@ sap.ui.define([
                 await this.graphClient
                     .api(`/users/${userId}/drive/root:/Sistema_Automatizado_Uniformes/Graph_DocEvidencias/${fileName}`)
                     .delete();
-                console.log(`Archivo ${fileName} eliminado exitosamente.`);
             } catch (error) {
                 console.error('Error durante la eliminación del archivo:', error);
             }

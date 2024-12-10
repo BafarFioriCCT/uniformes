@@ -91,12 +91,6 @@ sap.ui.define([
                     true
                 );
 
-                console.log({
-                    H1: oEntity,
-                    H2: oOperation,
-                    To_In_All: oToInAll
-                })
-
                 oModelTA.create(
                     "/In_HeaderSet",
                     {
@@ -220,7 +214,6 @@ sap.ui.define([
                     }
 
                     if (result.length > 0) {
-                        console.log(result)
                         that.sharedData.toInAll = result
                     } else {
                         MessageToast.show("No hay registros por hacer");

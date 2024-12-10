@@ -343,7 +343,6 @@ sap.ui.define([
                 .mAggregations
                 .fields[0]; // cBoxUpdateEstado
             this.sharedData.cBoxUpdateEstado = oComponent;
-            console.log(oComponent)
             this.sharedData.cBoxUpdateEstado.setSelectedKey(
                 this.sharedData.selectedItemsDoc[0].Estado
             );
@@ -412,7 +411,6 @@ sap.ui.define([
 
             // Verificar la extensión del archivo
             if (sFileName && !sFileName.endsWith(".pdf") && !sFileName.endsWith(".docx")) {
-                console.log("Solo se permiten archivos .pdf o .docx");
                 oFileUploader.setValue("");
                 return;
             } else {
@@ -610,17 +608,9 @@ sap.ui.define([
                     };
                     that.sharedData.selectedItemsDoc.push(oItem);
                 });
-
-                console.log("-----------------------------------");
-                console.log("Todos seleccionados");
-                console.log("-----------------------------------");
                 // Condición si se deseleccionaron todos los checkboxs
             } else if (!bSelectAll && aSelectedItems.length === 0) {
                 that.sharedData.selectedItemsDoc = []; // Limpiar el array de items seleccionados
-
-                console.log("-----------------------------------");
-                console.log("Todos deseleccionados");
-                console.log("-----------------------------------");
                 // Condición si se seleccionó o no individualmente un checkbox
             } else if (!bSelectAll) {
                 // Handle individual row selection/deselection
@@ -647,16 +637,13 @@ sap.ui.define([
                         .filter(function (item) {
                             return item.IdDocEv !== oItem.IdDocEv;
                         });
-                    console.log("Elemento deseleccionado:", oItem);
                 } else {
                     // Si el item no está en el array, lo agregamos (selección individual)
                     that.sharedData.selectedItemsDoc.push(oItem);
-                    console.log("Elemento seleccionado:", oItem);
                 }
             }
             // Actualiza el estado del botón en función del número de elementos seleccionados
             that.enableMainBtnsDoc(that.sharedData.selectedItemsDoc.length);
-            console.log(that.sharedData.selectedItemsDoc);
         },
 
         // Función para habilitar los botónes Update y Delete

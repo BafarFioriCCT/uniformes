@@ -184,18 +184,15 @@ sap.ui.define([
                         .filter(function (item) {
                             return item.Id !== oItem.Id;
                         });
-                    console.log("Elemento deseleccionado:", oItem);
                 } else {
                     // Si el item no está en el array, lo agregamos (selección individual)
                     that.sharedData.selectedItemsListDoc.push(oItem);
-                    console.log("Elemento seleccionado:", oItem);
                 }
             }
             // Actualiza el estado del botón en función del número de elementos seleccionados
             that.enableMainBtnsListDoc(
                 that.sharedData.selectedItemsListDoc.length
             );
-            console.log(that.sharedData.selectedItemsListDoc);
         },
 
         // Función para habilitar los botónes Update y Delete

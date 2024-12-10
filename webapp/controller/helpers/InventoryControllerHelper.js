@@ -993,7 +993,6 @@ sap.ui.define([
                 // Primero se filtra por lo que se eligió en TallaGral
                 return item.Talla === that.sharedData.inpCreateTallaGral.getValue();
             });
-            console.log(oData)
 
             // Crear un modelo JSON con los datos
             var oJsonModel = new JSONModel();
@@ -1138,7 +1137,6 @@ sap.ui.define([
                 // Primero se filtra por lo que se eligió en TallaGral
                 return item.Talla === that.sharedData.inpUpdateTallaGral.getValue();
             });
-            console.log(oData)
 
             // Crear un modelo JSON con los datos
             var oJsonModel = new JSONModel();
@@ -1265,7 +1263,6 @@ sap.ui.define([
                 item.FechaEntrada = formatter.formatDateFromTimestamp(item.FechaEntrada);
                 item.FechaSalida = formatter.formatDateFromTimestamp(item.FechaSalida);
             });
-            console.log(filteredData)
 
             // Obtiene el valor del ComboBox de esta página
             var comboBoxValue = this.onChangeInv();
@@ -1443,17 +1440,9 @@ sap.ui.define([
                     };
                     that.sharedData.selectedItemsInv.push(oItem);
                 });
-
-                console.log("-----------------------------------");
-                console.log("Todos seleccionados");
-                console.log("-----------------------------------");
                 // Condición si se deseleccionaron todos los checkboxs
             } else if (!bSelectAll && aSelectedItems.length === 0) {
                 that.sharedData.selectedItemsInv = []; // Limpiar el array de items seleccionados
-
-                console.log("-----------------------------------");
-                console.log("Todos deseleccionados");
-                console.log("-----------------------------------");
                 // Condición si se seleccionó o no individualmente un checkbox
             } else if (!bSelectAll) {
                 // Handle individual row selection/deselection
@@ -1492,16 +1481,13 @@ sap.ui.define([
                         .filter(function (item) {
                             return item.Funcion !== oItem.Funcion;
                         });
-                    console.log("Elemento deseleccionado:", oItem);
                 } else {
                     // Si el item no está en el array, lo agregamos (selección individual)
                     that.sharedData.selectedItemsInv.push(oItem);
-                    console.log("Elemento seleccionado:", oItem);
                 }
             }
             // Actualiza el estado del botón en función del número de elementos seleccionados
             that.enableMainBtnsInv(that.sharedData.selectedItemsInv.length);
-            console.log(that.sharedData.selectedItemsInv);
         },
 
         // Función para habilitar botones
