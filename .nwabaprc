@@ -1,0 +1,12 @@
+{ 
+    "base": "./dist", 
+    "conn_usestrictssl" : false, 
+    "conn_server": "http://svgwdap0.grupobafar.com:8000/", 
+    "conn_client" : "100", 
+    "conn_user": "CEAGUIRRE", 
+    "conn_password": "Inicio.2001", 
+    "abap_package": "ZUNIF", 
+    "abap_bsp": "ZSAU", 
+    "abap_bsp_text": "Sistema Automatizado de Uniformes BSP", 
+    "abap_transport":"GWDK903628" 
+} 
