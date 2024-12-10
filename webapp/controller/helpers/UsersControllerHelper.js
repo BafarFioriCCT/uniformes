@@ -154,7 +154,7 @@ sap.ui.define([
                 .fields[0]; // inpCreateNombre
             this.sharedData.inpCreateNombre = oComponent;
             this.sharedData.inpCreateNombre.setValue(
-                new sap.ushell.services.UserInfo().getId()
+                MainControllerHelper.getUserId()
             );
         },
 

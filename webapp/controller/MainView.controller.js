@@ -62,7 +62,7 @@ sap.ui.define([
 		//*----------------------------------------------------------------
 		//*| GLOBAL VARS                                                  |
 		//*----------------------------------------------------------------
-		user: new sap.ushell.services.UserInfo().getId(),
+		user: null,
 		permissions: { // Variable sobre que permisos tiene el usuario principal
 			PAQUETES: {
 				LEER: false,
@@ -1027,6 +1027,11 @@ sap.ui.define([
 			// Cargar el modelo OData para las tablas
 			var oModelOData = this.getOwnerComponent().getModel();
 			this.getView().setModel(oModelOData, "oDataModel");
+
+			//*----------------------------------------------------------------
+			//*| MAIN->USER		                                              |
+			//*----------------------------------------------------------------
+			this.user = MainControllerHelper.getUserId();
 
 			//*----------------------------------------------------------------
 			//*| MAIN->SHELLBAR	                                              |

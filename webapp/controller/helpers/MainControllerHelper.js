@@ -27,6 +27,14 @@ sap.ui.define([
             this.sharedData._aFragments = _aFragments;
         },
 
+        getUserId: function () {
+            let userModel = new sap.ui.model.json.JSONModel();
+            userModel.loadData("/sap/bc/ui2/start_up?", "", false);
+            //AGREGAR USUARIO PARA PRUEBAS EN DESAROLLO
+            // return "925";
+            return userModel.getProperty("/id");
+        },
+
         //*----------------------------------------------------------------
         //*| MÉTODOS ODATA                          					  |
         //*----------------------------------------------------------------

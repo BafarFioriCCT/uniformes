@@ -175,7 +175,7 @@ sap.ui.define([
                 .fields[0]; // inpCreateCreadoPor
             this.sharedData.inpCreateCreadoPor = oComponent;
             this.sharedData.inpCreateCreadoPor.setValue(
-                new sap.ushell.services.UserInfo().getId()
+                MainControllerHelper.getUserId()
             );
 
             oComponent = this.sharedData._oFgtDocumentsCreate // CreateForm.fragment.xml
