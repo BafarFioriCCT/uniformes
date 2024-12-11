@@ -50,11 +50,10 @@
                                 />
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="Nombre*">
+                        <f:FormElement label="ID Fiori*">
                             <f:fields>
                                 <Input
                                     id="inpCreateNombre"
-                                    enabled="false"
                                 />
                             </f:fields>
                         </f:FormElement>

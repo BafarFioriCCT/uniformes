@@ -153,9 +153,6 @@ sap.ui.define([
                 .mAggregations
                 .fields[0]; // inpCreateNombre
             this.sharedData.inpCreateNombre = oComponent;
-            this.sharedData.inpCreateNombre.setValue(
-                MainControllerHelper.getUserId()
-            );
         },
 
         //?-----------------------CSV-----------------------
