@@ -1357,23 +1357,23 @@ sap.ui.define([
 		_loadFragments: function () {
 			// Inicializar los fragmentos en un arreglo
 			var aFragmentNames = [
-				this._loadFragment("zuniformes.view.1_home.HomeView"),
-				this._loadFragment("zuniformes.view.2_packages.2_1PackageView"),
-				this._loadFragment("zuniformes.view.2_packages.2_2OperatorView"),
-				this._loadFragment("zuniformes.view.2_packages.2_3AspView"),
-				this._loadFragment("zuniformes.view.3_inventory.InventoryView"),
-				this._loadFragment("zuniformes.view.4_sizes.4_1GralSizesView"),
-				this._loadFragment("zuniformes.view.4_sizes.4_2InvSizesView"),
-				this._loadFragment("zuniformes.view.5_assignments.5_1AssignmentsView"),
-				this._loadFragment("zuniformes.view.5_assignments.5_2AssigSizesView"),
-				this._loadFragment("zuniformes.view.6_in_charge.InChargeView"),
-				this._loadFragment("zuniformes.view.7_documents.7_1InfoDocumentsView"),
-				this._loadFragment("zuniformes.view.7_documents.7_2DocumentsView"),
-				this._loadFragment("zuniformes.view.8_rotations.8_1RotationsView"),
-				this._loadFragment("zuniformes.view.8_rotations.8_2ChargeRotationsView"),
-				this._loadFragment("zuniformes.view.9_users.9_1UsersView"),
-				this._loadFragment("zuniformes.view.9_users.9_2RolesView"),
-				this._loadFragment("zuniformes.view.9_users.9_3PermissionsView"),
+				this._loadFragment("zuniformes.view.1_HomeView"),
+				this._loadFragment("zuniformes.view.2_1PackageView"),
+				this._loadFragment("zuniformes.view.2_2OperatorView"),
+				this._loadFragment("zuniformes.view.2_3AspView"),
+				this._loadFragment("zuniformes.view.3_InventoryView"),
+				this._loadFragment("zuniformes.view.4_1GralSizesView"),
+				this._loadFragment("zuniformes.view.4_2InvSizesView"),
+				this._loadFragment("zuniformes.view.5_1AssignmentsView"),
+				this._loadFragment("zuniformes.view.5_2AssigSizesView"),
+				this._loadFragment("zuniformes.view.6_InChargeView"),
+				this._loadFragment("zuniformes.view.7_1InfoDocumentsView"),
+				this._loadFragment("zuniformes.view.7_2DocumentsView"),
+				this._loadFragment("zuniformes.view.8_1RotationsView"),
+				this._loadFragment("zuniformes.view.8_2ChargeRotationsView"),
+				this._loadFragment("zuniformes.view.9_1UsersView"),
+				this._loadFragment("zuniformes.view.9_2RolesView"),
+				this._loadFragment("zuniformes.view.9_3PermissionsView"),
 			];
 
 			// Devuelve la promesa que carga todos los fragmentos principales
@@ -1765,8 +1765,8 @@ sap.ui.define([
 
 			PackageControllerHelper.setFgtCreatePaq(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.2_packages.2_1CreateForm",
-					"zuniformes.view.2_packages.2_1CreateForm",
+					this.getView().getId() + "-zuniformes.view.2_1CreateForm",
+					"zuniformes.view.2_1CreateForm",
 					this
 				)
 			);
@@ -1947,8 +1947,8 @@ sap.ui.define([
 
 			PackageControllerHelper.setFgtUpdatePaq(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.2_packages.2_1UpdateForm",
-					"zuniformes.view.2_packages.2_1UpdateForm",
+					this.getView().getId() + "-zuniformes.view.2_1UpdateForm",
+					"zuniformes.view.2_1UpdateForm",
 					this
 				)
 			);
@@ -2106,7 +2106,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedPaq: function () {
-			this.createViewSettingsDialog("zuniformes.view.2_packages.2_1SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.2_1SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -2117,7 +2117,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedPaq: function () {
-			this.createViewSettingsDialog("zuniformes.view.2_packages.2_1FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.2_1FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
@@ -2174,8 +2174,8 @@ sap.ui.define([
 
 			OperatorControllerHelper.setFgtCreateOpe(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.2_packages.2_2CreateForm",
-					"zuniformes.view.2_packages.2_2CreateForm",
+					this.getView().getId() + "-zuniformes.view.2_2CreateForm",
+					"zuniformes.view.2_2CreateForm",
 					this
 				)
 			);
@@ -2280,8 +2280,8 @@ sap.ui.define([
 
 			OperatorControllerHelper.setFgtUpdateOpe(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.2_packages.2_2UpdateForm",
-					"zuniformes.view.2_packages.2_2UpdateForm",
+					this.getView().getId() + "-zuniformes.view.2_2UpdateForm",
+					"zuniformes.view.2_2UpdateForm",
 					this
 				)
 			);
@@ -2401,7 +2401,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedOpe: function () {
-			this.createViewSettingsDialog("zuniformes.view.2_packages.2_2SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.2_2SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -2449,8 +2449,8 @@ sap.ui.define([
 		// Función para el díalogo Create
 		onCreateDialogAsp: function () {
 			AspControllerHelper.setFtgCreateAsp(sap.ui.xmlfragment(
-				this.getView().getId() + "-zuniformes.view.2_packages.2_3CreateNav",
-				"zuniformes.view.2_packages.2_3CreateNav",
+				this.getView().getId() + "-zuniformes.view.2_3CreateNav",
+				"zuniformes.view.2_3CreateNav",
 				this
 			));
 			AspControllerHelper.onCreateDialogAsp(this.oComboBoxModelSearch);
@@ -2514,7 +2514,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedAsp: function () {
-			this.createViewSettingsDialog("zuniformes.view.2_packages.2_3SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.2_3SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -2570,8 +2570,8 @@ sap.ui.define([
 				sharedData = InventoryControllerHelper.getSharedData();
 
 			InventoryControllerHelper.setFgtStockInv(sap.ui.xmlfragment(
-				this.getView().getId() + "-zuniformes.view.3_inventory.StockForm",
-				"zuniformes.view.3_inventory.StockForm",
+				this.getView().getId() + "-zuniformes.view.StockForm",
+				"zuniformes.view.StockForm",
 				this
 			));
 
@@ -2671,8 +2671,8 @@ sap.ui.define([
 
 			InventoryControllerHelper.setFgtCreateInv(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.3_inventory.CreateForm",
-					"zuniformes.view.3_inventory.CreateForm",
+					this.getView().getId() + "-zuniformes.view.3_CreateForm",
+					"zuniformes.view.3_CreateForm",
 					this
 				)
 			);
@@ -2849,8 +2849,8 @@ sap.ui.define([
 
 			InventoryControllerHelper.setFgtUpdateInv(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.3_inventory.UpdateForm",
-					"zuniformes.view.3_inventory.UpdateForm",
+					this.getView().getId() + "-zuniformes.view.3_UpdateForm",
+					"zuniformes.view.3_UpdateForm",
 					this
 				)
 			);
@@ -3033,7 +3033,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedInv: function () {
-			this.createViewSettingsDialog("zuniformes.view.3_inventory.SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.3_SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -3044,7 +3044,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedInv: function () {
-			this.createViewSettingsDialog("zuniformes.view.3_inventory.FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.3_FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
@@ -3101,8 +3101,8 @@ sap.ui.define([
 
 			GralSizesControllerHelper.setFgtCreateTaGral(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.4_sizes.4_1CreateForm",
-					"zuniformes.view.4_sizes.4_1CreateForm",
+					this.getView().getId() + "-zuniformes.view.4_1CreateForm",
+					"zuniformes.view.4_1CreateForm",
 					this
 				)
 			);
@@ -3203,8 +3203,8 @@ sap.ui.define([
 
 			GralSizesControllerHelper.setFgtUpdateTaGral(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.4_sizes.4_1UpdateForm",
-					"zuniformes.view.4_sizes.4_1UpdateForm",
+					this.getView().getId() + "-zuniformes.view.4_1UpdateForm",
+					"zuniformes.view.4_1UpdateForm",
 					this
 				)
 			);
@@ -3319,7 +3319,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedTaGral: function () {
-			this.createViewSettingsDialog("zuniformes.view.4_sizes.4_1SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.4_1SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -3330,7 +3330,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedTaGral: function () {
-			this.createViewSettingsDialog("zuniformes.view.4_sizes.4_1FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.4_1FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
@@ -3387,8 +3387,8 @@ sap.ui.define([
 
 			InvSizesControllerHelper.setFgtCreateTaInv(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.4_sizes.4_2CreateForm",
-					"zuniformes.view.4_sizes.4_2CreateForm",
+					this.getView().getId() + "-zuniformes.view.4_2CreateForm",
+					"zuniformes.view.4_2CreateForm",
 					this
 				)
 			);
@@ -3558,8 +3558,8 @@ sap.ui.define([
 
 			InvSizesControllerHelper.setFgtUpdateTaInv(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.4_sizes.4_2UpdateForm",
-					"zuniformes.view.4_sizes.4_2UpdateForm",
+					this.getView().getId() + "-zuniformes.view.4_2UpdateForm",
+					"zuniformes.view.4_2UpdateForm",
 					this
 				)
 			);
@@ -3674,7 +3674,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedTaInv: function () {
-			this.createViewSettingsDialog("zuniformes.view.4_sizes.4_2SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.4_2SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -3685,7 +3685,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedTaInv: function () {
-			this.createViewSettingsDialog("zuniformes.view.4_sizes.4_2FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.4_2FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
@@ -3740,8 +3740,8 @@ sap.ui.define([
 
 			AssignmentsControllerHelper.setFgtCreateAsig(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.5_assignments.5_1CreateForm",
-					"zuniformes.view.5_assignments.5_1CreateForm",
+					this.getView().getId() + "-zuniformes.view.5_1CreateForm",
+					"zuniformes.view.5_1CreateForm",
 					this
 				)
 			);
@@ -3984,8 +3984,8 @@ sap.ui.define([
 
 			AssignmentsControllerHelper.setFgtUpdateAsig(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.5_assignments.5_1UpdateForm",
-					"zuniformes.view.5_assignments.5_1UpdateForm",
+					this.getView().getId() + "-zuniformes.view.5_1UpdateForm",
+					"zuniformes.view.5_1UpdateForm",
 					this
 				)
 			);
@@ -4107,7 +4107,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedAsig: function () {
-			this.createViewSettingsDialog("zuniformes.view.5_assignments.5_1SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.5_1SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -4162,8 +4162,8 @@ sap.ui.define([
 
 			AssigSizesControllerHelper.setFgtCreateTaAsig(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.5_assignments.5_2CreateForm",
-					"zuniformes.view.5_assignments.5_2CreateForm",
+					this.getView().getId() + "-zuniformes.view.5_2CreateForm",
+					"zuniformes.view.5_2CreateForm",
 					this
 				)
 			);
@@ -4306,7 +4306,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedTaAsig: function () {
-			this.createViewSettingsDialog("zuniformes.view.5_assignments.5_2SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.5_2SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -4317,7 +4317,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedTaAsig: function () {
-			this.createViewSettingsDialog("zuniformes.view.5_assignments.5_2FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.5_2FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
@@ -4372,8 +4372,8 @@ sap.ui.define([
 
 			InChargeControllerHelper.setFgtCreateEnc(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.6_in_charge.CreateForm",
-					"zuniformes.view.6_in_charge.CreateForm",
+					this.getView().getId() + "-zuniformes.view.6_CreateForm",
+					"zuniformes.view.6_CreateForm",
 					this
 				)
 			);
@@ -4517,8 +4517,8 @@ sap.ui.define([
 
 			InChargeControllerHelper.setFgtUpdateEnc(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.6_in_charge.UpdateForm",
-					"zuniformes.view.6_in_charge.UpdateForm",
+					this.getView().getId() + "-zuniformes.view.6_UpdateForm",
+					"zuniformes.view.6_UpdateForm",
 					this
 				)
 			);
@@ -4638,7 +4638,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedEnc: function () {
-			this.createViewSettingsDialog("zuniformes.view.6_in_charge.SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.6_SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -4683,8 +4683,8 @@ sap.ui.define([
 
 			InfoDocumentsControllerHelper.setFgtCreateDoc(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.7_documents.7_1CreateForm",
-					"zuniformes.view.7_documents.7_1CreateForm",
+					this.getView().getId() + "-zuniformes.view.7_1CreateForm",
+					"zuniformes.view.7_1CreateForm",
 					this
 				)
 			);
@@ -4899,8 +4899,8 @@ sap.ui.define([
 
 			InfoDocumentsControllerHelper.setFgtUpdateDoc(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.7_documents.7_1UpdateForm",
-					"zuniformes.view.7_documents.7_1UpdateForm",
+					this.getView().getId() + "-zuniformes.view.7_1UpdateForm",
+					"zuniformes.view.7_1UpdateForm",
 					this
 				)
 			);
@@ -5035,7 +5035,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedDoc: function () {
-			this.createViewSettingsDialog("zuniformes.view.7_documents.7_1SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.7_1SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -5046,7 +5046,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedDoc: function () {
-			this.createViewSettingsDialog("zuniformes.view.7_documents.7_1FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.7_1FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
@@ -5137,8 +5137,8 @@ sap.ui.define([
 
 			RotationsControllerHelper.setFgtCreateRot(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.8_rotations.8_1CreateForm",
-					"zuniformes.view.8_rotations.8_1CreateForm",
+					this.getView().getId() + "-zuniformes.view.8_1CreateForm",
+					"zuniformes.view.8_1CreateForm",
 					this
 				)
 			);
@@ -5295,8 +5295,8 @@ sap.ui.define([
 
 			RotationsControllerHelper.setFgtUpdateRot(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.8_rotations.8_1UpdateForm",
-					"zuniformes.view.8_rotations.8_1UpdateForm",
+					this.getView().getId() + "-zuniformes.view.8_1UpdateForm",
+					"zuniformes.view.8_1UpdateForm",
 					this
 				)
 			);
@@ -5406,7 +5406,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedRot: function () {
-			this.createViewSettingsDialog("zuniformes.view.8_rotations.8_1SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.8_1SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -5417,7 +5417,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedRot: function () {
-			this.createViewSettingsDialog("zuniformes.view.8_rotations.8_1FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.8_1FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
@@ -5472,8 +5472,8 @@ sap.ui.define([
 
 			UsersControllerHelper.setFgtCreateUsu(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.9_users.9_1CreateForm",
-					"zuniformes.view.9_users.9_1CreateForm",
+					this.getView().getId() + "-zuniformes.view.9_1CreateForm",
+					"zuniformes.view.9_1CreateForm",
 					this
 				)
 			);
@@ -5638,7 +5638,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedUsu: function () {
-			this.createViewSettingsDialog("zuniformes.view.9_users.9_1SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.9_1SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -5693,8 +5693,8 @@ sap.ui.define([
 
 			RolesControllerHelper.setFgtCreateRol(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.9_users.9_2CreateForm",
-					"zuniformes.view.9_users.9_2CreateForm",
+					this.getView().getId() + "-zuniformes.view.9_2CreateForm",
+					"zuniformes.view.9_2CreateForm",
 					this
 				)
 			);
@@ -5812,8 +5812,8 @@ sap.ui.define([
 
 			RolesControllerHelper.setFgtUpdateRol(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.9_users.9_2UpdateForm",
-					"zuniformes.view.9_users.9_2UpdateForm",
+					this.getView().getId() + "-zuniformes.view.9_2UpdateForm",
+					"zuniformes.view.9_2UpdateForm",
 					this
 				)
 			);
@@ -5920,7 +5920,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedRol: function () {
-			this.createViewSettingsDialog("zuniformes.view.9_users.9_2SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.9_2SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -5975,8 +5975,8 @@ sap.ui.define([
 
 			PermissionsControllerHelper.setFgtCreatePer(
 				sap.ui.xmlfragment(
-					this.getView().getId() + "-zuniformes.view.9_users.9_3CreateForm",
-					"zuniformes.view.9_users.9_3CreateForm",
+					this.getView().getId() + "-zuniformes.view.9_3CreateForm",
+					"zuniformes.view.9_3CreateForm",
 					this
 				)
 			);
@@ -6142,7 +6142,7 @@ sap.ui.define([
 		//?-----------------------SORT-----------------------
 		// Función para abrir el díalogo de Sort correspondiente
 		handleSortBtnPressedPer: function () {
-			this.createViewSettingsDialog("zuniformes.view.9_users.9_3SortDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.9_3SortDialog").open();
 		},
 
 		// Función para ordenar datos de las tablas por columna
@@ -6153,7 +6153,7 @@ sap.ui.define([
 		//?-----------------------FILTER-----------------------
 		// Función para abrir el díalogo de Filter correspondiente
 		handleFilterBtnPressedPer: function () {
-			this.createViewSettingsDialog("zuniformes.view.9_users.9_3FilterDialog").open();
+			this.createViewSettingsDialog("zuniformes.view.9_3FilterDialog").open();
 		},
 
 		// Función para filtrar datos de las tablas por columna
