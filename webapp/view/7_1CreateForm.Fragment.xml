@@ -46,7 +46,7 @@
                                     class="columns"
                                 >
                                     <Input
-                                        id="inpCreateTipo"
+                                        id="inpCreateDocTipo"
                                         enabled="false"
                                     >
                                         <layoutData>

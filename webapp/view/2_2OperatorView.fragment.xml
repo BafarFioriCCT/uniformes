@@ -130,7 +130,7 @@
             class="sapUiTinyMargin"
         >
             <Table
-                id="tableOpe"
+                id="tableOpeView"
                 sticky="ColumnHeaders"
                 mode="MultiSelect"
                 selectionChange="onSelectedItemOpe"
@@ -148,7 +148,7 @@
                         />
                         <ToolbarSpacer />
                         <ComboBox
-                            id="comboBoxSearchOpe"
+                            id="cbSearchOpe"
                             change="onChangeOpe"
                             selectionChange="onChangeOpe"
                             width="20%"
@@ -161,7 +161,7 @@
                             />
                         </ComboBox>
                         <SearchField
-                            id="searchFieldOpe"
+                            id="sFieldOpe"
                             search="handleSearchFieldOpe"
                             width="40%"
                         />

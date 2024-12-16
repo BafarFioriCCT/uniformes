@@ -133,7 +133,7 @@
             class="sapUiTinyMargin"
         >
             <Table
-                id="tablePaq"
+                id="tablePaqView"
                 sticky="ColumnHeaders"
                 mode="MultiSelect"
                 selectionChange="onSelectedItemPaq"
@@ -151,7 +151,7 @@
                         />
                         <ToolbarSpacer />
                         <ComboBox
-                            id="comboBoxSearchPaq"
+                            id="cbSearchPaqView"
                             change="onChangePaq"
                             selectionChange="onChangePaq"
                             width="20%"
@@ -164,7 +164,7 @@
                             />
                         </ComboBox>
                         <SearchField
-                            id="searchFieldPaq"
+                            id="sFieldPaq"
                             search="handleSearchFieldPaq"
                             width="40%"
                         />
