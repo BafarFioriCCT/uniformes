@@ -2570,7 +2570,7 @@ sap.ui.define([
 				sharedData = InventoryControllerHelper.getSharedData();
 
 			InventoryControllerHelper.setFgtStockInv(sap.ui.xmlfragment(
-				this.getView().getId() + "-zuniformes.view.StockForm",
+				this.getView().getId() + "-zuniformes.view.3_StockForm",
 				"zuniformes.view.StockForm",
 				this
 			));
