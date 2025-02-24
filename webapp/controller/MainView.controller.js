@@ -2571,7 +2571,7 @@ sap.ui.define([
 
 			InventoryControllerHelper.setFgtStockInv(sap.ui.xmlfragment(
 				this.getView().getId() + "-zuniformes.view.3_StockForm",
-				"zuniformes.view.StockForm",
+				"zuniformes.view.3_StockForm",
 				this
 			));
 

@@ -4,9 +4,9 @@
     "conn_server": "http://svgwdap0.grupobafar.com:8000/", 
     "conn_client" : "100", 
     "conn_user": "CEAGUIRRE", 
-    "conn_password": "Inicio.2001", 
+    "conn_password": "WWECW.2000", 
     "abap_package": "ZUNIF", 
-    "abap_bsp": "ZSAU", 
+    "abap_bsp": "ZAPP_SAU", 
     "abap_bsp_text": "Sistema Automatizado de Uniformes BSP", 
-    "abap_transport":"GWDK903628" 
+    "abap_transport":"GWDK903767" 
 } 
