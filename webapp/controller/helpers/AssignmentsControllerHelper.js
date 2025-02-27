@@ -10,6 +10,7 @@ sap.ui.define([
     'sap/m/ButtonType',
     'sap/m/Dialog',
     'sap/m/MessageToast',
+    'sap/m/MessageBox',
     'sap/m/Text',
     'sap/m/FlexBox',
     'sap/m/SelectDialog',
@@ -24,7 +25,7 @@ sap.ui.define([
     //?-----------------------SAP/UI-----------------------
     JSONModel, FileUploader,
     //?-----------------------SAP/M-----------------------
-    Button, ButtonType, Dialog, MessageToast, Text, FlexBox,
+    Button, ButtonType, Dialog, MessageToast, MessageBox, Text, FlexBox,
     SelectDialog, StandardListItem,
     TableSelectDialog, ColumnListItem, Column
 ) {
@@ -1090,7 +1091,11 @@ sap.ui.define([
 
         //?-----------------------DELETE-----------------------
         // Función para eliminar masivamente registros seleccionados
-        onDeleteDialogAsig: function () {
+        onDeleteDialogAsig: async function () {
+            var rotData = await MainControllerHelper.getSetOData("RotTempSet"),
+                taAsig = await MainControllerHelper.getSetOData("TallasAsigSet"),
+                taInv = await MainControllerHelper.getSetOData("TallasInvSet");
+
             var that = this;
             var dialog = new Dialog({
                 title: 'Eliminar registro(s)',
@@ -1104,7 +1109,15 @@ sap.ui.define([
                         that.sharedData.selectedItemsAsig.forEach(item => {
                             toInAllDel.push({ B1: item.IdAsign, B2: item.IdDocEv })
                         });
-                        MainControllerHelper.postMultipleOData("ASIGNACION", "DEL", toInAllDel)
+                        
+                        var bItemExists = that.sharedData.selectedItemsAsig.some(asig => 
+                            rotData.some(rot => asig.IdAsign === rot.IdAsign) || 
+                            taAsig.some(taAsig => asig.IdAsign === taAsig.IdAsign) ||
+                            taInv.some(taInv => asig.IdAsign === taInv.IdAsign)
+                        );
+
+                        if (!bItemExists) {
+                            MainControllerHelper.postMultipleOData("ASIGNACION", "DEL", toInAllDel)
                             .then(() => {
                                 // Aquí la promesa fue exitosa
                                 // Mensaje de éxito, se cierra y se destruye el Dialog
@@ -1114,6 +1127,16 @@ sap.ui.define([
                                 // Aquí hubo un error
                                 MessageToast.show("Error al eliminar el registro");
                             });
+                        } else {
+                            MessageBox.error("¡Alguna asignación está en uso! Se recomienda borrarlo desde las tablas relacionadas primero", {
+                                title: "Error",                                      // default
+                                onClose: null,                                       // default
+                                styleClass: "",                                      // default
+                                initialFocus: null,                                  // default
+                                textDirection: sap.ui.core.TextDirection.Inherit     // default
+                            });
+                        }
+
                         dialog.close();
                     }
                 }),

@@ -9,6 +9,7 @@ sap.ui.define([
     'sap/m/ButtonType',
     'sap/m/Dialog',
     'sap/m/MessageToast',
+    'sap/m/MessageBox',
     'sap/m/Text',
     'sap/m/FlexBox'
 ], function (
@@ -17,7 +18,7 @@ sap.ui.define([
     //?-----------------------SAP/UI-----------------------
     JSONModel, FileUploader,
     //?-----------------------SAP/M-----------------------
-    Button, ButtonType, Dialog, MessageToast, Text, FlexBox
+    Button, ButtonType, Dialog, MessageToast, MessageBox, Text, FlexBox
 ) {
     "use strict";
 
@@ -515,7 +516,10 @@ sap.ui.define([
 
         //?-----------------------DELETE-----------------------
         // Función para eliminar masivamente registros seleccionados
-        onDeleteDialogPaq: function () {
+        onDeleteDialogPaq: async function () {
+            var aspData = await MainControllerHelper.getSetOData("AsigPaqOpSet"),
+                invData = await MainControllerHelper.getSetOData("InventarioSet");
+
             var that = this;
             var dialog = new Dialog({
                 title: 'Eliminar registro(s)',
@@ -529,7 +533,14 @@ sap.ui.define([
                         that.sharedData.selectedItemsPaq.forEach(item => {
                             toInAllDel.push({ B1: item.Funcion })
                         });
-                        MainControllerHelper.postMultipleOData("PAQUETE", "DEL", toInAllDel)
+
+                        var bItemExists = that.sharedData.selectedItemsPaq.some(paq => 
+                            aspData.some(asp => paq.Funcion === asp.Funcion) || 
+                            invData.some(inv => paq.Funcion === inv.Funcion)
+                        );
+
+                        if (!bItemExists) {
+                            MainControllerHelper.postMultipleOData("PAQUETE", "DEL", toInAllDel)
                             .then(() => {
                                 // Aquí la promesa fue exitosa, puedes manejar el resultado
                                 // Mensaje de éxito, se cierra y se destruye el Dialog
@@ -539,6 +550,16 @@ sap.ui.define([
                                 // Aquí hubo un error, puedes manejar el error
                                 MessageToast.show("Error al eliminar el registro");
                             });
+                        } else {
+                            MessageBox.error("¡Algún paquete está en uso! Se recomienda borrarlo desde las tablas relacionadas primero", {
+                                title: "Error",                                      // default
+                                onClose: null,                                       // default
+                                styleClass: "",                                      // default
+                                initialFocus: null,                                  // default
+                                textDirection: sap.ui.core.TextDirection.Inherit     // default
+                            });
+                        }
+
                         dialog.close();
                     }
                 }),

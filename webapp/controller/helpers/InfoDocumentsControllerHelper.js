@@ -162,7 +162,7 @@ sap.ui.define([
                 .mAggregations
                 .fields[0]
                 .mAggregations
-                .items[1]; // dPickerCreateFechaCreacion
+                .items[1]; // dPickerCreateFechaCreacionz
             this.sharedData.dPickerCreateFechaCreacion = oComponent;
 
             oComponent = this.sharedData._oFgtDocumentsCreate // CreateForm.fragment.xml

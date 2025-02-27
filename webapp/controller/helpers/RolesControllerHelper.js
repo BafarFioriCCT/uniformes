@@ -9,18 +9,16 @@ sap.ui.define([
     'sap/m/ButtonType',
     'sap/m/Dialog',
     'sap/m/MessageToast',
+    'sap/m/MessageBox',
     'sap/m/Text',
     'sap/m/FlexBox',
-    'sap/m/SelectDialog',
-    'sap/m/StandardListItem',
 ], function (
     //?-----------------------OTROS-----------------------
     MainControllerHelper,
     //?-----------------------SAP/UI-----------------------
     JSONModel, FileUploader,
     //?-----------------------SAP/M-----------------------
-    Button, ButtonType, Dialog, MessageToast, Text, FlexBox,
-    SelectDialog, StandardListItem
+    Button, ButtonType, Dialog, MessageToast, MessageBox, Text, FlexBox
 ) {
     "use strict";
 
@@ -302,7 +300,10 @@ sap.ui.define([
 
         //?-----------------------DELETE-----------------------
         // Función para eliminar masivamente registros seleccionados
-        onDeleteDialogRol: function () {
+        onDeleteDialogRol: async function () {
+            var usuData = await MainControllerHelper.getSetOData("UsuariosSet"),
+                perData = await MainControllerHelper.getSetOData("PermisosSet");
+
             var that = this;
             var dialog = new Dialog({
                 title: 'Eliminar registro(s)',
@@ -316,7 +317,14 @@ sap.ui.define([
                         that.sharedData.selectedItemsRol.forEach(item => {
                             toInAllDel.push({ B1: item.Rol })
                         });
-                        MainControllerHelper.postMultipleOData("ROLES", "DEL", toInAllDel)
+
+                        var bItemExists = that.sharedData.selectedItemsRol.some(rol => 
+                            usuData.some(usu => rol.Rol === usu.Rol) || 
+                            perData.some(per => rol.Rol === per.Rol)
+                        );
+
+                        if (!bItemExists) {
+                            MainControllerHelper.postMultipleOData("ROLES", "DEL", toInAllDel)
                             .then(() => {
                                 // Aquí la promesa fue exitosa, puedes manejar el resultado
                                 // Mensaje de éxito, se cierra y se destruye el Dialog
@@ -326,6 +334,16 @@ sap.ui.define([
                                 // Aquí hubo un error, puedes manejar el error
                                 MessageToast.show("Error al eliminar el registro");
                             });
+                        } else {
+                            MessageBox.error("¡Algún rol está en uso! Se recomienda borrarlo desde las tablas relacionadas primero", {
+                                title: "Error",                                      // default
+                                onClose: null,                                       // default
+                                styleClass: "",                                      // default
+                                initialFocus: null,                                  // default
+                                textDirection: sap.ui.core.TextDirection.Inherit     // default
+                            });
+                        }
+
                         dialog.close();
                     }
                 }),

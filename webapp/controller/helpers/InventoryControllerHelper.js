@@ -10,6 +10,7 @@ sap.ui.define([
     'sap/m/ButtonType',
     'sap/m/Dialog',
     'sap/m/MessageToast',
+    'sap/m/MessageBox',
     'sap/m/Text',
     'sap/m/FlexBox',
     'sap/m/SelectDialog',
@@ -21,7 +22,7 @@ sap.ui.define([
     //?-----------------------SAP/UI-----------------------
     JSONModel, FileUploader,
     //?-----------------------SAP/M-----------------------
-    Button, ButtonType, Dialog, MessageToast,
+    Button, ButtonType, Dialog, MessageToast, MessageBox,
     Text, FlexBox, SelectDialog, StandardListItem
 ) {
     "use strict";
@@ -1207,7 +1208,9 @@ sap.ui.define([
 
         //?-----------------------DELETE-----------------------
         // Función para eliminar masivamente registros seleccionados
-        onDeleteDialogInv: function () {
+        onDeleteDialogInv: async function () {
+            var taInvData = await MainControllerHelper.getSetOData("TallasInvSet");
+
             var that = this;
             var dialog = new Dialog({
                 title: 'Eliminar registro(s)',
@@ -1221,7 +1224,13 @@ sap.ui.define([
                         that.sharedData.selectedItemsInv.forEach(item => {
                             toInAllDel.push({ B1: item.IdInv })
                         });
-                        MainControllerHelper.postMultipleOData("INVENTARIO", "DEL", toInAllDel)
+
+                        var bItemExists = that.sharedData.selectedItemsInv.some(inv => 
+                            taInvData.some(taInv => inv.IdInv === taInv.IdInv)
+                        );
+
+                        if (!bItemExists) {
+                            MainControllerHelper.postMultipleOData("INVENTARIO", "DEL", toInAllDel)
                             .then(() => {
                                 // Aquí la promesa fue exitosa, puedes manejar el resultado
                                 // Mensaje de éxito, se cierra y se destruye el Dialog
@@ -1231,6 +1240,16 @@ sap.ui.define([
                                 // Aquí hubo un error, puedes manejar el error
                                 MessageToast.show("Error al eliminar el registro");
                             });
+                        } else {
+                            MessageBox.error("¡Algún inventario está en uso! Se recomienda borrarlo desde las tablas relacionadas primero", {
+                                title: "Error",                                      // default
+                                onClose: null,                                       // default
+                                styleClass: "",                                      // default
+                                initialFocus: null,                                  // default
+                                textDirection: sap.ui.core.TextDirection.Inherit     // default
+                            });
+                        }
+                        
                         dialog.close();
                     }
                 }),

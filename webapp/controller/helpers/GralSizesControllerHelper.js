@@ -9,6 +9,7 @@ sap.ui.define([
     'sap/m/ButtonType',
     'sap/m/Dialog',
     'sap/m/MessageToast',
+    'sap/m/MessageBox',
     'sap/m/Text',
     'sap/m/FlexBox'
 ], function (
@@ -17,7 +18,7 @@ sap.ui.define([
     //?-----------------------SAP/UI-----------------------
     JSONModel, FileUploader,
     //?-----------------------SAP/M-----------------------
-    Button, ButtonType, Dialog, MessageToast, Text, FlexBox
+    Button, ButtonType, Dialog, MessageToast, MessageBox, Text, FlexBox
 ) {
     "use strict";
 
@@ -316,7 +317,9 @@ sap.ui.define([
 
         //?-----------------------DELETE-----------------------
         // Función para eliminar masivamente registros seleccionados
-        onDeleteDialogTaGral: function () {
+        onDeleteDialogTaGral: async function () {
+            var taInvData = await MainControllerHelper.getSetOData("TallasInvSet");
+
             var that = this;
             var dialog = new Dialog({
                 title: 'Eliminar registro(s)',
@@ -330,7 +333,13 @@ sap.ui.define([
                         that.sharedData.selectedItemsTaGral.forEach(item => {
                             toInAllDel.push({ B1: item.IdTaGr })
                         });
-                        MainControllerHelper.postMultipleOData("TALLAS_GRL", "DEL", toInAllDel)
+
+                        var bItemExists = that.sharedData.selectedItemsTaGral.some(taGral => 
+                            taInvData.some(taInv => taGral.IdTaGr === taInv.IdTaGr)
+                        );
+
+                        if (!bItemExists) {
+                            MainControllerHelper.postMultipleOData("TALLAS_GRL", "DEL", toInAllDel)
                             .then(() => {
                                 // Aquí la promesa fue exitosa, puedes manejar el resultado
                                 // Mensaje de éxito, se cierra y se destruye el Dialog
@@ -340,6 +349,16 @@ sap.ui.define([
                                 // Aquí hubo un error, puedes manejar el error
                                 MessageToast.show("Error al eliminar el registro");
                             });
+                        } else {
+                            MessageBox.error("¡Alguna talla está en uso! Se recomienda borrarlo desde las tablas relacionadas primero", {
+                                title: "Error",                                      // default
+                                onClose: null,                                       // default
+                                styleClass: "",                                      // default
+                                initialFocus: null,                                  // default
+                                textDirection: sap.ui.core.TextDirection.Inherit     // default
+                            });
+                        }
+                        
                         dialog.close();
                     }
                 }),

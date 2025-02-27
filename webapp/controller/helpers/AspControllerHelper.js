@@ -630,7 +630,7 @@ sap.ui.define([
             var dialog = new Dialog({
                 title: 'Eliminar registro(s)',
                 type: 'Message',
-                content: new Text({ text: '¿Estás seguro de eliminar dicho(s) registro(s)?' }),
+                content: new Text({ text: '¿Estás seguro de eliminar dicho(s) registro(s)? \n Otras tablas tienen registros o cálculos relacionados desde esta tabla' }),
                 beginButton: new Button({
                     type: ButtonType.Reject,
                     text: 'Eliminar',

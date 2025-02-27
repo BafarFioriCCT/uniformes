@@ -250,7 +250,7 @@ sap.ui.define([
 				{
 					"title": "Usuarios",
 					"icon": "sap-icon://user-settings",
-					"expanded": true,
+					"expanded": false,
 					"items": [
 						{
 							"title": "Administrar usuarios",
@@ -331,8 +331,8 @@ sap.ui.define([
 							"key": "Funcion"
 						},
 						{
-							"text": "Paquete",
-							"key": "Paquete"
+							"text": "Denominación Función",
+							"key": "DenomFunc"
 						},
 						{
 							"text": "Función Operador",
@@ -1032,6 +1032,7 @@ sap.ui.define([
 			//*| MAIN->USER		                                              |
 			//*----------------------------------------------------------------
 			this.user = MainControllerHelper.getUserId();
+			this.user = "CEAGUIRRE";
 
 			//*----------------------------------------------------------------
 			//*| MAIN->SHELLBAR	                                              |
@@ -4412,7 +4413,7 @@ sap.ui.define([
 							// Llamada GET para comprobar existencia
 							const result = await MainControllerHelper.getOData(request);
 							// ENCARGADO YA EXISTENTE
-							var boolGet = result.NoEmp != 0 && result.Ciudad1.length > 0;
+							var boolGet = result.NoEmp == 0 && result.Ciudad1.length > 0;
 
 							if (boolGet) { // Si arroja el NoEmp y la Ciudad1, ya existe en Encargados
 								MessageBox.error("¡Encargado ya existente en el sistema!", {
@@ -4704,8 +4705,6 @@ sap.ui.define([
 					text: 'Agregar',
 					enabled: false,
 					press: async function () {
-						var bNameExists = false;
-
 						var oComponents = [
 							sharedData.inpCreateNombre,
 							sharedData.inpCreateTipo.getValue(),
@@ -4721,6 +4720,7 @@ sap.ui.define([
 						//! ----------------------------PRIMER PROMESA----------------------------
 						//! ----------------------------GET SET----------------------------
 						const getSetResult = await MainControllerHelper.getSetOData("DocEvidenciaSet");
+						var bNameExists = false;
 						getSetResult.forEach(element => {
 							bNameExists = element.Nombre == oComponents[0];
 						});
@@ -4967,7 +4967,9 @@ sap.ui.define([
 
 		//?-----------------------DELETE-----------------------
 		// Función para el díalogo Delete
-		onDeleteDialogDoc: function () {
+		onDeleteDialogDoc: async function () {
+			var asigData = await MainControllerHelper.getSetOData("AsignacionSet");
+
 			var that = this,
 				infoDocShData = InfoDocumentsControllerHelper.getSharedData();
 			var dialog = new Dialog({
@@ -4978,31 +4980,46 @@ sap.ui.define([
 					type: ButtonType.Reject,
 					text: 'Eliminar',
 					press: async function () {
-						var toInAllDel = [];
-						infoDocShData.selectedItemsDoc.forEach(async item => { // Item asíncrono por GraphHelper
-							// Traer IDs seleccionadas para eliminar de las bases de datos
-							toInAllDel.push({ B1: item.IdDocEv });
-							// Borrar los archivos por los nombres seleccionados
-							await GraphHelper.deleteFile(item.Nombre)
-						});
-
-						// Función POST para eliminar los registros por IDs
-						MainControllerHelper.postMultipleOData("DOCUMENTOS", "DEL", toInAllDel)
-							.then(() => {
-								// Aquí la promesa fue exitosa, puedes manejar el resultado
-								// Mensaje de éxito, se cierra y se destruye el Dialog
-								MessageToast.show('¡Documento(s) eliminado(s) éxitosamente!');
-								that.handleResetBtnConfirmDoc();
-								that.handleResetBtnConfirmListDoc();
-							}).catch(() => {
-								// Aquí hubo un error, puedes manejar el error
-								MessageToast.show("Error al eliminar el registro");
+						var bItemExists = infoDocShData.selectedItemsDoc.some(doc => 
+                            asigData.some(asig => doc.IdDocEv === asig.IdDocEv)
+                        );
+						
+						if (!bItemExists) {
+							var toInAllDel = [];
+							infoDocShData.selectedItemsDoc.forEach(async item => { // Item asíncrono por GraphHelper
+								// Traer IDs seleccionadas para eliminar de las bases de datos
+								toInAllDel.push({ B1: item.IdDocEv });
+								// Borrar los archivos por los nombres seleccionados
+								await GraphHelper.deleteFile(item.Nombre)
 							});
 
-						// Recargar de nuevo el cliente, junto con los nuevos archivos
-						// Para el modelo de la List listDoc de DocumentsControllerHelper
-						await GraphHelper.setGraphClient();
-						that.modelListDoc = await GraphHelper.getFiles();
+							// Función POST para eliminar los registros por IDs
+							MainControllerHelper.postMultipleOData("DOCUMENTOS", "DEL", toInAllDel)
+								.then(() => {
+									// Aquí la promesa fue exitosa, puedes manejar el resultado
+									// Mensaje de éxito, se cierra y se destruye el Dialog
+									MessageToast.show('¡Documento(s) eliminado(s) éxitosamente!');
+									that.handleResetBtnConfirmDoc();
+									that.handleResetBtnConfirmListDoc();
+								}).catch(() => {
+									// Aquí hubo un error, puedes manejar el error
+									MessageToast.show("Error al eliminar el registro");
+								});
+
+							// Recargar de nuevo el cliente, junto con los nuevos archivos
+							// Para el modelo de la List listDoc de DocumentsControllerHelper
+							await GraphHelper.setGraphClient();
+							that.modelListDoc = await GraphHelper.getFiles();
+						} else {
+							MessageBox.error("¡Algún documento está en uso! Se recomienda borrarlo desde las tablas relacionadas primero", {
+                                title: "Error",                                      // default
+                                onClose: null,                                       // default
+                                styleClass: "",                                      // default
+                                initialFocus: null,                                  // default
+                                textDirection: sap.ui.core.TextDirection.Inherit     // default
+                            });
+						}
+						
 						dialog.close();
 					}
 				}),

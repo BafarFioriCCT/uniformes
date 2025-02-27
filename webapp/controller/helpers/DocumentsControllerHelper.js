@@ -7,9 +7,6 @@ sap.ui.define([
     //?-----------------------SAP/M-----------------------
     'sap/m/MessageToast',
     'sap/m/StandardListItem',
-    'sap/m/Dialog',
-    'sap/m/Button',
-    'sap/m/Link',
 ], function (
     //?-----------------------OTROS-----------------------
     MainControllerHelper,
@@ -17,7 +14,7 @@ sap.ui.define([
     //?-----------------------SAP/UI-----------------------
     JSONModel,
     //?-----------------------SAP/M-----------------------
-    MessageToast, StandardListItem, Dialog, Button, Link,
+    MessageToast, StandardListItem
 ) {
     "use strict";
 

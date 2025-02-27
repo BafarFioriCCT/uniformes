@@ -334,7 +334,7 @@ sap.ui.define([
 
             // Filtrar los datos basados en la búsqueda
             filteredData = filteredData.filter(function (item) {
-                return regex.test(item.NoEmp) || regex.test(item.Descripcion);
+                return regex.test(item.Rol) || regex.test(item.Descripcion);
             });
 
             // Crear un nuevo modelo con los datos filtrados
@@ -361,7 +361,9 @@ sap.ui.define([
             var dialog = new Dialog({
                 title: 'Eliminar registro(s)',
                 type: 'Message',
-                content: new Text({ text: '¿Estás seguro de eliminar dicho(s) registro(s)?' }),
+                content: new Text({ 
+                    text: '¿Estás seguro de eliminar dicho(s) registro(s)? Usuarios con dichos roles perderán sus permisos seleccionados' 
+                }),
                 beginButton: new Button({
                     type: ButtonType.Reject,
                     text: 'Eliminar',
